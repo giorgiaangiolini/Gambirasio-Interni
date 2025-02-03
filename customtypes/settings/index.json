@@ -1,0 +1,298 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "label": "instagram link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "facebook_link": {
+        "type": "Link",
+        "config": {
+          "label": "facebook link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "tik_tok_link": {
+        "type": "Link",
+        "config": {
+          "label": "tik tok link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "youtube_link": {
+        "type": "Link",
+        "config": {
+          "label": "youtube link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "pinterest_link": {
+        "type": "Link",
+        "config": {
+          "label": "pinterest link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "our_apps_title": {
+        "type": "Text",
+        "config": {
+          "label": "Our apps title",
+          "placeholder": ""
+        }
+      },
+      "google_app_image": {
+        "type": "Image",
+        "config": {
+          "label": "google app image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "google_app_link": {
+        "type": "Link",
+        "config": {
+          "label": "google app link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "apple_app_image": {
+        "type": "Image",
+        "config": {
+          "label": "Apple app image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "apple_app_link": {
+        "type": "Link",
+        "config": {
+          "label": "apple app link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "b2b_area_title": {
+        "type": "Text",
+        "config": {
+          "label": "B2B area title",
+          "placeholder": ""
+        }
+      },
+      "b2b_area_label": {
+        "type": "Text",
+        "config": {
+          "label": "B2B area label",
+          "placeholder": ""
+        }
+      },
+      "b2b_area_link": {
+        "type": "Link",
+        "config": {
+          "label": "B2B area link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "find_stores_title": {
+        "type": "Text",
+        "config": {
+          "label": "Find stores title",
+          "placeholder": ""
+        }
+      },
+      "find_stores_label": {
+        "type": "Text",
+        "config": {
+          "label": "Find stores label",
+          "placeholder": ""
+        }
+      },
+      "find_stores_link": {
+        "type": "Link",
+        "config": {
+          "label": "Find stores link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "footer_info": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer info",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_column": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "meta title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "meta description",
+          "placeholder": ""
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "meta image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    },
+    "MARQUEE": {
+      "marquee_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "marquee text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
+        }
+      }
+    },
+    "HEADER": {
+      "logo_link": {
+        "type": "Link",
+        "config": {
+          "label": "logo link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "header": {
+        "type": "Group",
+        "config": {
+          "label": "header",
+          "fields": {
+            "link_label": {
+              "type": "Text",
+              "config": {
+                "label": "link label",
+                "placeholder": ""
+              }
+            },
+            "internal_link": {
+              "type": "Link",
+              "config": {
+                "label": "internal link",
+                "select": "document"
+              }
+            },
+            "external_link": {
+              "type": "Link",
+              "config": {
+                "label": "external link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "header_mobile": {
+        "type": "Group",
+        "config": {
+          "label": "header mobile",
+          "fields": {
+            "link_label_mobile": {
+              "type": "Text",
+              "config": {
+                "label": "link label mobile",
+                "placeholder": ""
+              }
+            },
+            "internal_link_mobile": {
+              "type": "Link",
+              "config": {
+                "label": "internal link mobile",
+                "select": "document"
+              }
+            },
+            "external_link_mobile": {
+              "type": "Link",
+              "config": {
+                "label": "external link mobile",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "PRELOADER": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "Subtitle",
+          "placeholder": ""
+        }
+      },
+      "video": {
+        "type": "Link",
+        "config": {
+          "label": "video",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "video_poster": {
+        "type": "Image",
+        "config": {
+          "label": "video poster",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
