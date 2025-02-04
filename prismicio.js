@@ -26,7 +26,7 @@ export const linkResolver = (doc) => {
   }
 
   if(doc.type == "progetto"){
-    return `/progetto/${doc.uid}`
+    return `/progetti/${doc.uid}`
   }
 
   if(doc.type == "oggetto"){

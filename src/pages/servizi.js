@@ -16,14 +16,7 @@ export default function Servizi({servizi, settings, locales}) {
       altLangs={locales}
      >
 
-    <div className="flex h-screen pt-8 pb-2">
-        <div className="w-1/2 flex items-center">
 
-        </div>
-        <div className="w-1/2 flex justify-end">
-
-        </div>
-    </div>
  
     </Layout>
   )
