@@ -12,14 +12,6 @@
           "label": "UID"
         }
       },
-      "tipologia_oggetto": {
-        "type": "Select",
-        "config": {
-          "label": "Tipologia Oggetto",
-          "placeholder": "",
-          "options": ["Tappeti", "Imbottiti", "Mobili", "Complementi"]
-        }
-      },
       "cover_01": {
         "type": "Image",
         "config": {

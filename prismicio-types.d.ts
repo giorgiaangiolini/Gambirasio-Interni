@@ -59,15 +59,15 @@ interface ContattiDocumentData {
   video: prismic.LinkToMediaField<prismic.FieldState, never>;
 
   /**
-   * CTA field in *Contatti*
+   * Immagine  field in *Contatti*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: contatti.cta
+   * - **API ID Path**: contatti.immagine
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  immagine: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Contatti*
@@ -236,19 +236,6 @@ type OggettoDocumentDataSlicesSlice = never;
  * Content for Oggetto documents
  */
 interface OggettoDocumentData {
-  /**
-   * Tipologia Oggetto field in *Oggetto*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: oggetto.tipologia_oggetto
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  tipologia_oggetto: prismic.SelectField<
-    "Tappeti" | "Imbottiti" | "Mobili" | "Complementi"
-  >;
-
   /**
    * Cover 01 field in *Oggetto*
    *
@@ -561,17 +548,6 @@ interface ServiziDocumentData {
   servizi: prismic.GroupField<Simplify<ServiziDocumentDataServiziItem>>;
 
   /**
-   * CTA field in *Servizi*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: servizi.cta
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
    * Slice Zone field in *Servizi*
    *
    * - **Field Type**: Slice Zone
@@ -635,24 +611,16 @@ export type ServiziDocument<Lang extends string = string> =
  */
 export interface SettingsDocumentDataHeaderItem {
   /**
-   * link label field in *Settings → header*
+   * Link field in *Settings → header*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.header[].link_label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  link_label: prismic.KeyTextField;
-
-  /**
-   * internal link field in *Settings → header*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.header[].internal_link
+   * - **API ID Path**: settings.header[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  internal_link: prismic.ContentRelationshipField;
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
 }
 
 /**
@@ -691,23 +659,6 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never> /**
-   * logo link field in *Settings*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.logo_link
-   * - **Tab**: HEADER
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */;
-  logo_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-
-  /**
    * header field in *Settings*
    *
    * - **Field Type**: Group
@@ -715,7 +666,7 @@ interface SettingsDocumentData {
    * - **API ID Path**: settings.header[]
    * - **Tab**: HEADER
    * - **Documentation**: https://prismic.io/docs/field#group
-   */
+   */;
   header: prismic.GroupField<Simplify<SettingsDocumentDataHeaderItem>> /**
    * Title field in *Settings*
    *
@@ -793,17 +744,6 @@ interface StoriaDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   testo: prismic.RichTextField;
-
-  /**
-   * CTA field in *Storia*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: storia.cta
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * Immagine field in *Storia*

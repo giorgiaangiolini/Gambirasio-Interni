@@ -42,15 +42,12 @@
           "allowText": true
         }
       },
-      "cta": {
-        "type": "Link",
+      "immagine": {
+        "type": "Image",
         "config": {
-          "label": "CTA",
-          "placeholder": "",
-          "select": null,
-          "allowTargetBlank": true,
-          "allowText": true,
-          "repeat": false
+          "label": "Immagine ",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {

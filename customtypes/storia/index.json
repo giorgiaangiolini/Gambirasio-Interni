@@ -15,17 +15,6 @@
           "multi": "paragraph,em,strong"
         }
       },
-      "cta": {
-        "type": "Link",
-        "config": {
-          "label": "CTA",
-          "placeholder": "",
-          "select": null,
-          "allowTargetBlank": true,
-          "allowText": true,
-          "repeat": false
-        }
-      },
       "immagine": {
         "type": "Image",
         "config": {

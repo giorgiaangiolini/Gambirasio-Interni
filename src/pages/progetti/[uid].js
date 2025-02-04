@@ -2,8 +2,7 @@ import Layout from "../../components/layout";
 import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "../../../prismicio";
 import { SliceZone } from "@prismicio/react";
-import { components } from "../../../slices";
-export default function Page({ page, settings }) {
+export default function Progetto({ page, settings }) {
 
   const {data} = page;
   
@@ -13,7 +12,7 @@ export default function Page({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-      <SliceZone slices={data.slices} components={components} />
+
 
     </Layout>
   )
@@ -22,7 +21,7 @@ export default function Page({ page, settings }) {
 
 export async function getStaticPaths() {
   const client = createClient();
-  const page = await client.getAllByType('page', { lang: '*' })
+  const page = await client.getAllByType('progetto', { lang: '*' })
   return {
     paths: page.map((doc) => {
       return { params: { uid: doc.uid }, locale: doc.lang }
@@ -37,7 +36,7 @@ export async function getStaticProps({ params, previewData, locale }) {
 
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", params.uid,
+  const page = await client.getByUID("progetto", params.uid,
   {
     lang: locale
   });

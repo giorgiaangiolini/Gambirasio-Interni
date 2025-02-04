@@ -30,31 +30,20 @@
       }
     },
     "HEADER": {
-      "logo_link": {
-        "type": "Link",
-        "config": {
-          "label": "logo link",
-          "placeholder": "",
-          "select": null
-        }
-      },
       "header": {
         "type": "Group",
         "config": {
           "label": "header",
           "fields": {
-            "link_label": {
-              "type": "Text",
-              "config": {
-                "label": "link label",
-                "placeholder": ""
-              }
-            },
-            "internal_link": {
+            "link": {
               "type": "Link",
               "config": {
-                "label": "internal link",
-                "select": "document"
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": true
               }
             }
           }

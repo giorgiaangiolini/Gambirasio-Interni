@@ -1,6 +1,5 @@
 import {useRef, useEffect} from "react"
 import { useRouter } from 'next/router';
-import Script from 'next/script'
 import Link from "next/link";
 import { PrismicLink, PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
@@ -73,32 +72,29 @@ const richTextComponents = {
     )
   }
  ,
-  image: ({ node, key }) => {
-    const img = (
-      <img
-        src={node.url}
-        alt={node.alt ?? undefined}
-        data-copyright={node.copyright ? node.copyright : undefined}
-      />
-    )
-    
-    return (
-      <p key={key} className="block-img">
-        {node.linkTo ? (
-          <PrismicLink
-            linkResolver={args.linkResolver}
-            internalComponent={args.internalLinkComponent}
-            externalComponent={args.externalLinkComponent}
-            field={node.linkTo}
-          >
-            {img}
-          </PrismicLink>
-        ) : (
-          img
-        )}
-      </p>
-    )
-  },
+ image: ({ node, key }) => {
+  const img = (
+    <img
+      src={node.url}
+      alt={node.alt ?? undefined}
+      data-copyright={node.copyright ? node.copyright : undefined}
+    />
+  )
+  
+  return (
+    <p key={key} className="block-img">
+      {node.linkTo ? (
+        <PrismicLink
+          field={node.linkTo}
+        >
+          {img}
+        </PrismicLink>
+      ) : (
+        img
+      )}
+    </p>
+  )
+},
   embed: ({ node, key }) => (
     <div className="custom-aspect-video">
       <div

@@ -5,9 +5,8 @@ import { createClient } from "../../prismicio";
 // import { getLocales } from '../../helpers/getLocales';
 
 
-export default function Home({home, settings, locales}) {
+export default function Contatti({contatti, settings, locales}) {
 
-  const {data} = home;
 
   return (
      <Layout
@@ -15,7 +14,7 @@ export default function Home({home, settings, locales}) {
       meta={data}
       altLangs={locales}
      >
-      <SliceZone slices={home.data.slices} context={settings} components={components} />  
+       
     </Layout>
   )
 }
@@ -27,21 +26,21 @@ export async function getStaticProps({ params, locale, previewData }) {
 
   try{
 
-    const home = await client.getSingle("homepage",{ lang: locale}
+    const contatti = await client.getSingle("contatti",{ lang: locale}
    );
 
     const settings = await client.getSingle("settings",{ lang: locale});
 
-    const locales = await getLocales(home, client)
+    const locales = await getLocales(contatti, client)
 
 
-    if (!home || !settings) {
+    if (!contatti || !settings) {
       return { notFound: true };
     }
 
     return {
       props: {
-        home,
+        contatti,
         settings,
         locales, 
       },
