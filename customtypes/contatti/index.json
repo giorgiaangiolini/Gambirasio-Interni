@@ -22,12 +22,14 @@
           "repeat": true,
           "fields": {
             "link": {
-              "type": "StructuredText",
+              "type": "Link",
               "config": {
                 "label": "Link",
                 "placeholder": "",
+                "select": null,
                 "allowTargetBlank": true,
-                "multi": "paragraph"
+                "allowText": true,
+                "repeat": false
               }
             }
           }

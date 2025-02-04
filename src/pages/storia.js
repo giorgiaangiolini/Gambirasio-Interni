@@ -13,7 +13,7 @@ export default function Storia({storia, settings, locales}) {
       meta={data}
       altLangs={locales}
      >
-        
+        <p>ciao</p>
     </Layout>
   )
 }

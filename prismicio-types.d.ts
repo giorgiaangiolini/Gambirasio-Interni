@@ -11,12 +11,12 @@ export interface ContattiDocumentDataSocialItem {
   /**
    * Link field in *Contatti → Social*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: contatti.social[].link
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.RichTextField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 type ContattiDocumentDataSlicesSlice = never;

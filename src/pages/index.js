@@ -1,8 +1,9 @@
 import React from 'react';
 import { createClient } from "../../prismicio";
-// import Layout from "../components/layout";
-// import { SliceZone } from "@prismicio/react";
-// import { getLocales } from '../../helpers/getLocales';
+import Layout from "../components/layout";
+import { SliceZone } from "@prismicio/react";
+import { getLocales } from '../../helpers/getLocales';
+import { components } from '@/slices';
 
 
 export default function Home({home, settings, locales}) {
