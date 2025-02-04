@@ -8,20 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        marquee: 'marquee 25s linear infinite',
-        marquee2: 'marquee2 25s linear infinite',
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
-        },
-      },
       spacing: {
         '0': '0px',
         '1': '10px',
@@ -42,11 +28,9 @@ module.exports = {
      
     },
     colors: {
-      red: '#F21C1C',
-      blu: '#1759FF',
-      azure: '#31D8FF',
-      white: '#ffff',
+      grey: '#8993A0',
       black: 'black',
+      white: 'white',
       transparent: "transparent"
     },
     screens: {
@@ -56,22 +40,12 @@ module.exports = {
       'xl': '1280px',
     },
     fontFamily: {
-      sans: "Helvetica",
       primary: "Helvetica",
-      medium: "Helvetica-md",
-      italic: "Helvetica-it",
-      serif: "Times"
+      secondary: "Times"
     },
     fontSize: {
-      'xs': '.14px', 
-      'sm': '16px', 
-      'base': '20px',
-      'md': '25px',
-      'md1': '30px', 
-      'md2': "35px",
-      'md3': '40px',
-      'lg': '50px',
-      'xl': '55px',    
+      'base': '16px',  
+      'm': '18px',  
     },
     fontWeights: {
       'thin': 200,

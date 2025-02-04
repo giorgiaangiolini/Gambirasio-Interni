@@ -16,11 +16,11 @@ const Layout = ({ children, altLangs, menu, meta, settings }) => {
 
           <SmoothScrolling>
             
-            <div className='texture-background opacity-50'></div>
    
-           <div className={`page_container`}>
+           <div className={`page_container max-w-[1600px] mx-auto px-[16px] md:px-4 min-h-screen`}>
             {children}
            </div>
+
           </SmoothScrolling>   
 
         <Footer altLangs={altLangs} settings={settings}/>

@@ -70,43 +70,31 @@ function Header({ altLangs, settings }) {
     }
   };
 
-
+  
   return (
     <>
-      <header className="absolute top-0 z-50 w-full px-[16px] py-2 md:px-4">
+      <header className="fixed left-0 top-0 z-100 w-full px-[16px] py-1 md:px-4">
         <div className="flex items-center justify-between gap-2">
-          <div className="flex lg:w-fit w-full items-center justify-between gap-2">
-            <Link className="w-[180px] md:w-auto" href="/">
-             logo
+          <div className="w-1/3">
+            <Link href="/">
+              <h1 className="font-secondary uppercase text-grey text-[32px] leading-none">Gambirasio Interni</h1>
             </Link>
+          </div>
 
-            <div
-              onClick={() => toggleOpen(!expanded)}
-              className={
-                (mobileOpen
-                  ? "menu_btn open text-white "
-                  : "menu_btn text-black") + "flex font-medium lg:hidden"
-              }
-            >
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          <div className="flex items-center justify-center w-1/3">
+            {settings.data.header[0].link.map((item, i) => {
+              console.log(item, "ciao");
+              return (
+              <PrismicLink
+                field={item.link}
+                className="uppercase text-grey font-secondary px-2"
               >
-                <rect width="36" height="36" rx="18" fill="white" />
-                <path d="M10 14H26" stroke="#4A783C" strokeWidth="1.5" />
-                <path d="M10 18H26" stroke="#4A783C" strokeWidth="1.5" />
-                <path d="M10 22H26" stroke="#4A783C" strokeWidth="1.5" />
-              </svg>
-            </div>
+                {item.text}
+              </PrismicLink>
+            )})}
           </div>
 
-          {/* desktop linklist */}
-          <div className="hidden rounded-[50px] bg-white px-2 py-1 lg:flex md:gap-2 lg:gap-2 gap-1 ">
-              
-          </div>
+          <div className="w-1/3"></div>
         </div>
       </header>
 

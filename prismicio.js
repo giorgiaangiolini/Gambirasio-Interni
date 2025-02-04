@@ -13,8 +13,24 @@ export const linkResolver = (doc) => {
     return `/`
   }
 
-  if(doc.type == "page"){
-    return `/page/${doc.uid}`
+  if(doc.type == "contatti"){
+    return `/contatti`
+  }
+
+  if(doc.type == "storia"){
+    return `/storia`
+  }
+
+  if(doc.type == "servizi"){
+    return `/servizi`
+  }
+
+  if(doc.type == "progetto"){
+    return `/progetto/${doc.uid}`
+  }
+
+  if(doc.type == "oggetto"){
+    return `/collezioni/${doc.uid}`
   }
 
   return "/";
