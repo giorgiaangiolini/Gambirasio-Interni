@@ -4,10 +4,11 @@ import Layout from "../components/layout";
 import { getLocales } from '../../helpers/getLocales';
 
 
-
 export default function Servizi({servizi, settings, locales}) {
+  const {data} = servizi;
 
-
+  console.log(data, "gg");
+  
   return (
      <Layout
       settings={settings}
@@ -15,7 +16,14 @@ export default function Servizi({servizi, settings, locales}) {
       altLangs={locales}
      >
 
-      <p>cia</p>
+    <div className="flex h-screen pt-8 pb-2">
+        <div className="w-1/2 flex items-center">
+
+        </div>
+        <div className="w-1/2 flex justify-end">
+
+        </div>
+    </div>
  
     </Layout>
   )
