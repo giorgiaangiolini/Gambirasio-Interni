@@ -1,8 +1,7 @@
 import React from 'react';
 import { createClient } from "../../prismicio";
-// import Layout from "../components/layout";
-// import { SliceZone } from "@prismicio/react";
-// import { getLocales } from '../../helpers/getLocales';
+import Layout from "../components/layout";
+import { getLocales } from '../../helpers/getLocales';
 
 
 
@@ -12,9 +11,11 @@ export default function Servizi({servizi, settings, locales}) {
   return (
      <Layout
       settings={settings}
-      meta={data}
+      meta={servizi.data}
       altLangs={locales}
      >
+
+      <p>cia</p>
  
     </Layout>
   )
