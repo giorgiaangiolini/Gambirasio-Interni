@@ -3,13 +3,11 @@ import { createClient } from "../../prismicio";
 import Layout from "../../components/layout";
 import { PrismicNextImage } from '@prismicio/next';
 import { getLocales } from '../../../helpers/getLocales';
-
+import Link from 'next/link';
 
 export default function Progetti({progetti, settings, locales}) {
 
   const {data} = progetti;
-  console.log(progetti, "data");
-  
 
 
   return (
@@ -21,14 +19,23 @@ export default function Progetti({progetti, settings, locales}) {
        
        <div className="grid grid-cols-3 gap-1 pt-8 pb-2">
          {progetti.map((progetto, i) => (
-           <div key={i} className="w-full">
-            <div className="relative w-full aspect-[3/4]">
-              <PrismicNextImage
-                field={progetto.data.cover}
-                className="object-cover w-full h-full absolute inset-0"
-              />
-            </div>
-           </div>
+           <Link href={`/progetti/${progetto.uid}`}>
+             <div key={i} className="w-full">
+              <div className="relative w-full aspect-[3/4] group">
+                <PrismicNextImage
+                  field={progetto.data.cover}
+                  className="object-cover w-full h-full absolute inset-0 group-hover:opacity-0 transition-opacity duration-200"
+                />
+                <PrismicNextImage 
+                  field={progetto.data.cover_02}
+                  className="object-cover w-full h-full absolute inset-0 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+              <div className="text-grey leading-none py-1">
+                  <p>{progetto.data.didascalia}</p>
+              </div>
+             </div>
+           </Link>
          ))}
        </div>
 
