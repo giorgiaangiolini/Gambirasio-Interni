@@ -46,3 +46,7 @@
 .aspect-3-4 {
   @include aspect-custom(3, 4);
 }
+
+.aspect-4-5 {
+  @include aspect-custom(4, 5);
+}

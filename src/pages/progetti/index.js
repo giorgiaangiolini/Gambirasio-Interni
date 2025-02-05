@@ -21,7 +21,7 @@ export default function Progetti({progetti, settings, locales}) {
          {progetti.map((progetto, i) => (
            <Link href={`/progetti/${progetto.uid}`}>
              <div key={i} className="w-full">
-              <div className="relative w-full aspect-[3/4] group">
+              <div className="relative w-full aspect-[4/5] group">
                 <PrismicNextImage
                   field={progetto.data.cover}
                   className="object-cover w-full h-full absolute inset-0 group-hover:opacity-0 transition-opacity duration-200"

@@ -4,11 +4,14 @@ import Layout from "../components/layout";
 import { SliceZone } from "@prismicio/react";
 import { getLocales } from '../../helpers/getLocales';
 import { components } from '@/slices';
+import Slideshow from '@/components/slideshow';
 
 
 export default function Home({home, settings, locales}) {
 
   const {data} = home;
+  console.log(data, "data");
+  
 
   return (
      <Layout
@@ -16,7 +19,21 @@ export default function Home({home, settings, locales}) {
       meta={data}
       altLangs={locales}
      >
-      <SliceZone slices={home.data.slices} context={settings} components={components} />  
+      <SliceZone slices={home.data.slices} context={settings} components={components} /> 
+      <div className="flex items-center justify-between px-4 absolute top-1/2 -translate-y-1/2 left-0 w-full z-10 bg-transparent">
+        <div className="text-grey max-w-md mix-blend-difference">
+          {data.testo[0].text}
+        </div>
+        <div className="absolute left-1/2 -translate-x-1/2">
+          {data.logo && (
+            <img 
+              src={data.logo.url}
+              alt={data.logo.alt || "Logo"}
+              className="h-[10vw] w-auto"
+            />
+          )}
+        </div>
+      </div>
     </Layout>
   )
 }

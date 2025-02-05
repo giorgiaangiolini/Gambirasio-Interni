@@ -70,7 +70,7 @@ function Header({ altLangs, settings }) {
     }
   };
 
-  
+
   return (
     <>
       <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4 h-8">
@@ -83,15 +83,17 @@ function Header({ altLangs, settings }) {
 
           <div className="flex items-center justify-center w-1/3">
             {settings.data.header[0].link.map((item, i) => {
-              console.log(item, "ciao");
+              console.log('Link item:', item);
               return (
-              <PrismicLink
-                field={item.link}
-                className="uppercase text-grey font-secondary px-2"
-              >
-                {item.text}
-              </PrismicLink>
-            )})}
+                <Link
+                  key={item.key}
+                  href={item.url || '/'}
+                  className="uppercase text-grey font-secondary px-2"
+                >
+                  {item.text}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="w-1/3"></div>

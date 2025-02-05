@@ -1,7 +1,7 @@
 import React from 'react';
 import { createClient } from "../../prismicio";
-import Layout from "../components/layout";
-import { getLocales } from '../../helpers/getLocales';
+import Layout from "../../components/layout";
+import { getLocales } from '../../../helpers/getLocales';
 
 
 export default function Collezioni({collezioni, settings, locales}) {

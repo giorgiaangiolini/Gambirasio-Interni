@@ -16,7 +16,7 @@ const Slideshow = ({ content }) => {
   return(
     <div className='project_slideshow'>    
           <Swiper
-            key={content.id}
+            // key={content.id}
             modules={[Navigation, A11y, Pagination, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
