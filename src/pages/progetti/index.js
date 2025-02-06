@@ -15,23 +15,24 @@ export default function Progetti({progetti, settings, locales}) {
       settings={settings}
       meta={data}
       altLangs={locales}
-     >
-       
+     >    
        <div className="grid grid-cols-3 gap-1 pt-8 pb-2">
          {progetti.map((progetto, i) => (
            <Link href={`/progetti/${progetto.uid}`}>
              <div key={i} className="w-full">
-              <div className="relative w-full aspect-[4/5] group">
-                <PrismicNextImage
-                  field={progetto.data.cover}
-                  className="object-cover w-full h-full absolute inset-0 group-hover:opacity-0 transition-opacity duration-200"
-                />
-                <PrismicNextImage 
-                  field={progetto.data.cover_02}
-                  className="object-cover w-full h-full absolute inset-0 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                />
+              <div className="relative w-full  group overflow-hidden aspect-4-5">
+                <div className="absolute w-full h-full top-0 left-0">
+                  <PrismicNextImage
+                    field={progetto.data.cover}
+                    className="object-cover w-full h-full"
+                  />
+                  <PrismicNextImage 
+                    field={progetto.data.cover_02}
+                    className="absolute inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+                  />
+                </div>
               </div>
-              <div className="text-grey leading-none py-1">
+              <div className="text-grey leading-none py-1 text-s">
                   <p>{progetto.data.didascalia}</p>
               </div>
              </div>

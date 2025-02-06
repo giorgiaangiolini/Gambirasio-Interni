@@ -12,7 +12,6 @@ export default function Oggetto({ page, settings }) {
       altLangs={page.alternate_languages}
       >
 
-
     </Layout>
   )
   

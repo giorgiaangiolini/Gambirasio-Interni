@@ -6,6 +6,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName, linkResolver } from "../../prismicio";
 import localFont from 'next/font/local'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { PreloaderCtxProvider } from "../../context/preloaderContext";
 
 const helvetica = localFont({
   src: [
@@ -128,6 +129,7 @@ export default function App({ Component, pageProps }) {
       richTextComponents={richTextComponents}
       internalLinkComponent={NextLinkShim}
     >
+      <PreloaderCtxProvider>
       <PrismicPreview repositoryName={repositoryName}> 
 
 
@@ -145,6 +147,7 @@ export default function App({ Component, pageProps }) {
          <Component {...pageProps} />
         
       </PrismicPreview>
+      </PreloaderCtxProvider>
     </PrismicProvider>
   )
 }

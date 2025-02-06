@@ -7,7 +7,6 @@ import { PrismicNextImage } from '@prismicio/next';
 export default function Progetto({ page, settings }) {
 
   const {data} = page;
-  console.log(data, "data");
   
     return ( 
       <Layout
@@ -17,14 +16,14 @@ export default function Progetto({ page, settings }) {
       >
         <div className="flex min-h-screen pt-8 pb-2">
           <div className="w-[30%]">
-            <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey leading-tight">
+            <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
               {data.descrizione_progetto}
             </div>
           </div>
           <div className="w-[70%]">
             <div className="flex flex-col gap-1">
               {data.immagini.map((img, i) => (
-                <div key={i} className="w-full" style={{height: 'calc(100vh - 90px)'}}>
+                <div key={i} className="w-full flex justify-end" style={{height: 'calc(100vh - 90px)'}}>
                   <PrismicNextImage
                     field={img.immagine}
                     className="w-auto h-full object-cover"

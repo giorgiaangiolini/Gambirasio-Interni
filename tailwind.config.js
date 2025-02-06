@@ -30,7 +30,7 @@ module.exports = {
     colors: {
       grey: '#8993A0',
       black: 'black',
-      white: 'white',
+      white: '#FFFEF7',
       transparent: "transparent"
     },
     screens: {
@@ -45,7 +45,8 @@ module.exports = {
     },
     fontSize: {
       'base': '16px',  
-      'm': '18px',  
+      'm': '18px',
+      's': '14px',
     },
     fontWeights: {
       'thin': 200,

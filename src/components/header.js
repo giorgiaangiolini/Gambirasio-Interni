@@ -3,7 +3,6 @@ import { PrismicLink } from "@prismicio/react";
 import Link from "next/link";
 import { LanguageSwitcher } from "./ui/LanguageSwitcher";
 import { useRouter } from "next/router";
-
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -37,6 +36,7 @@ function Header({ altLangs, settings }) {
 
   const tl = useRef();
 
+  console.log(settings, "ciao")
 
   useGSAP(() => {
     let links = menuRef.current.querySelectorAll(".link_col")
@@ -73,25 +73,24 @@ function Header({ altLangs, settings }) {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4 h-8">
+      <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4">
         <div className="flex items-center justify-between gap-2">
           <div className="w-1/3">
             <Link href="/">
-              <h1 className="font-secondary uppercase text-grey text-[32px] leading-none">Gambirasio Interni</h1>
+              <h1 className="font-secondary uppercase text-grey text-[26px] leading-none">Gambirasio Interni</h1>
             </Link>
           </div>
 
-          <div className="flex items-center justify-center w-1/3">
+          <div className="flex items-center gap-3 justify-center w-1/3">
             {settings.data.header[0].link.map((item, i) => {
-              console.log('Link item:', item);
               return (
-                <Link
+                <PrismicLink
                   key={item.key}
-                  href={item.url || '/'}
-                  className="uppercase text-grey font-secondary px-2"
+                  field={item}
+                  className={`uppercase text-grey font-secondary leading-none hover:border-grey`}
                 >
                   {item.text}
-                </Link>
+                </PrismicLink>
               );
             })}
           </div>

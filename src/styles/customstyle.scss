@@ -37,6 +37,9 @@
 .aspect-4-3 {
   @include aspect-custom(4, 3);
 }
+.aspect-4-5 {
+  @include aspect-custom(4, 5);
+}
 .aspect-9-16 {
   @include aspect-custom(9, 16);
 }
