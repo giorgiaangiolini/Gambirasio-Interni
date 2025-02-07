@@ -2,13 +2,13 @@ import React from 'react';
 import { createClient } from "../../prismicio";
 import Layout from "../../components/layout";
 import { PrismicNextImage } from '@prismicio/next';
-import { getLocales } from '../../../helpers/getLocales';
 import Link from 'next/link';
+import FadeStagger from '@/components/Animations/FadeStagger';
+import { getLocales } from '../../../helpers/getLocales';
 
 export default function Progetti({progetti, settings, locales}) {
 
   const {data} = progetti;
-
 
   return (
      <Layout
@@ -16,7 +16,8 @@ export default function Progetti({progetti, settings, locales}) {
       meta={data}
       altLangs={locales}
      >    
-       <div className="grid grid-cols-3 gap-1 pt-8 pb-2">
+       <FadeStagger>
+       <div className="grid grid-cols-3 gap-1 pt-8 pb-2 md:px-4">
          {progetti.map((progetto, i) => (
            <Link href={`/progetti/${progetto.uid}`}>
              <div key={i} className="w-full">
@@ -38,8 +39,8 @@ export default function Progetti({progetti, settings, locales}) {
              </div>
            </Link>
          ))}
-       </div>
-
+        </div>
+       </FadeStagger>
     </Layout>
   )
 }
@@ -56,18 +57,18 @@ export async function getStaticProps({ params, locale, previewData }) {
 
     const settings = await client.getSingle("settings",{ lang: locale});
 
-    // const locales = await getLocales(progetti, client)
 
-    console.log(progetti, "progetti")
     if (!progetti || !settings) {
       return { notFound: true };
     }
+    // const locales = await getLocales(progetti, client)
+
 
     return {
       props: {
         progetti,
         settings,
-        // locales, 
+        // locales,    
       },
     };
 

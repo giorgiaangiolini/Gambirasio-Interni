@@ -25,7 +25,7 @@ const Layout = ({ children, altLangs, menu, meta, settings }) => {
           <SmoothScrolling>
             
    
-           <div className={`page_container ${useRouter().pathname === "/" ? "" : "px-[16px] md:px-4"} min-h-screen bg-white`}>
+           <div className={`page_container min-h-screen bg-white`}>
             {children}
            </div>
 

@@ -2,12 +2,11 @@ import React from 'react';
 import { createClient } from "../../prismicio";
 import Layout from "../components/layout";
 import { getLocales } from '../../helpers/getLocales';
-
+import { PrismicRichText } from '@prismicio/react';
+import { PrismicNextImage } from '@prismicio/next';
 
 export default function Servizi({servizi, settings, locales}) {
   const {data} = servizi;
-
-  console.log(data, "gg");
   
   return (
      <Layout
@@ -15,6 +14,8 @@ export default function Servizi({servizi, settings, locales}) {
       meta={servizi.data}
       altLangs={locales}
      >
+
+
 
 
  

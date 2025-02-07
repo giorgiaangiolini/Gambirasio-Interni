@@ -17,9 +17,9 @@ const TextAnimationHeading = ({children}) => {
 
     let split = SplitText.create(textRef.current, { type:"line,words,chars",
       wordsClass: "split-line"});
-      let words = split.chars;
+      let words = split.words;
       const anim = gsap.fromTo(words,
-        {autoAlpha: 0, y: 100},{ y: 0, duration:0.6, autoAlpha: 1, ease: "ease", stagger: 0.02});
+        {autoAlpha: 0, y: 10},{ y: 0, duration:0.6, autoAlpha: 1, ease: "ease", stagger: 0.01});
 
       ScrollTrigger.create({
         trigger: textRef.current,

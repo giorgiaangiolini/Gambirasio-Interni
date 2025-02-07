@@ -7,7 +7,7 @@ import { repositoryName, linkResolver } from "../../prismicio";
 import localFont from 'next/font/local'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { PreloaderCtxProvider } from "../../context/preloaderContext";
-
+import TransitionComponent from '../components/Animations/transition';
 const helvetica = localFont({
   src: [
     {
@@ -143,8 +143,9 @@ export default function App({ Component, pageProps }) {
         
         {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GTAG} /> */}
    
-       
+          <TransitionComponent>
          <Component {...pageProps} />
+         </TransitionComponent>
         
       </PrismicPreview>
       </PreloaderCtxProvider>

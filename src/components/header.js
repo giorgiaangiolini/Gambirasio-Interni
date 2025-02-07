@@ -36,7 +36,6 @@ function Header({ altLangs, settings }) {
 
   const tl = useRef();
 
-  console.log(settings, "ciao")
 
   useGSAP(() => {
     let links = menuRef.current.querySelectorAll(".link_col")
@@ -83,13 +82,15 @@ function Header({ altLangs, settings }) {
 
           <div className="flex items-center gap-3 justify-center w-1/3">
             {settings.data.header[0].link.map((item, i) => {
+              console.log(router.pathname, item.text, "ciao")
               return (
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={`uppercase text-grey font-secondary leading-none hover:border-grey`}
+                  className={`uppercase text-grey font-secondary leading-none relative group`}
                 >
                   {item.text}
+                  <div className={`absolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? '!w-full' : ''}`}></div>
                 </PrismicLink>
               );
             })}

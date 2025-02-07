@@ -5,12 +5,12 @@ import Head from 'next/head'
 
 export default function Custom404() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-brown">
+    <div className="flex flex-col items-center justify-center min-h-screen text-brown bg-white">
       <Head>
         <title>404 - Page Not Found</title>
         <meta name="description" content="The page you're looking for doesn't exist." />
       </Head>
-      <h1 className="font-bold mb-2">404</h1>
+      <h1 className="font-bold mb-2 font-secondary text-[100px] text-grey">404</h1>
       <p className="mb-4">Oops! The page you're looking for doesn't exist.</p>
       <Link className='underline font-bold' href="/">
           Go back home

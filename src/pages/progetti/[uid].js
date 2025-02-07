@@ -3,7 +3,8 @@ import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "../../../prismicio";
 import { SliceZone } from "@prismicio/react";
 import { PrismicNextImage } from '@prismicio/next';
-
+import FadeStagger from "@/components/Animations/FadeStagger";
+import FadeIn from '@/components/Animations/FadeIn';
 export default function Progetto({ page, settings }) {
 
   const {data} = page;
@@ -14,13 +15,18 @@ export default function Progetto({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-        <div className="flex min-h-screen pt-8 pb-2">
+        <div className="flex min-h-screen pt-8 pb-2 md:px-4">
           <div className="w-[30%]">
             <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
+            <FadeIn>
               {data.descrizione_progetto}
+              </FadeIn>
             </div>
+           
           </div>
           <div className="w-[70%]">
+            
+            <FadeStagger>
             <div className="flex flex-col gap-1">
               {data.immagini.map((img, i) => (
                 <div key={i} className="w-full flex justify-end" style={{height: 'calc(100vh - 90px)'}}>
@@ -31,6 +37,7 @@ export default function Progetto({ page, settings }) {
                 </div>
               ))}
             </div>
+            </FadeStagger>
           </div>
         </div>
 

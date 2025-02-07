@@ -5,10 +5,9 @@ import { SliceZone } from "@prismicio/react";
 import { getLocales } from "../../helpers/getLocales";
 import { components } from "@/slices";
 import Slideshow from "@/components/slideshow";
-
+import FadeIn from '@/components/Animations/FadeIn';
 export default function Home({ home, settings, locales }) {
   const { data } = home;
-  console.log(data, "data");
 
   return (
     <Layout settings={settings} meta={data} altLangs={locales}>
@@ -18,12 +17,14 @@ export default function Home({ home, settings, locales }) {
         components={components}
       />
       <div className="flex items-center justify-between px-4 absolute top-1/2 -translate-y-1/2 left-0 w-full z-10 bg-transparent">
+        <FadeIn>
         <div className="text-grey max-w-md">
           {data.testo[0].text}
         </div>
+        </FadeIn>
       </div>
       <div className="absolute h-screen w-screen top-0 left-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="w-[220px]">
+        <div className="w-[220px] animate-[rotateX_3s_linear_infinite]">
           <svg
             width="332"
             height="422"
