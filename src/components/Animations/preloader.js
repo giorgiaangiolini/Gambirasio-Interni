@@ -3,25 +3,50 @@ import { gsap } from "gsap";
 import { useIsomorphicLayoutEffect } from "../../../helpers/isomorphicEffect";
 import PreloaderCtx from "../../../context/preloaderContext";
 import { useGSAP } from "@gsap/react";
-function Preloader() {
+import { PrismicRichText } from "@prismicio/react";
+import { useRouter } from "next/router";
+
+import { CustomEase } from "gsap/dist/CustomEase.js";
+
+if (typeof window !== "undefined"){
+  gsap.registerPlugin(CustomEase)
+}
+
+function Preloader({settings}) {
   const [showPreloader, setShowPreloader] = useState(true);
   const preloaderCtx = useContext(PreloaderCtx);
 
   const preloader = useRef();
   const tl = useRef();
 
+const router = useRouter();
 
   useGSAP(()=>{
 
+    CustomEase.create("logoEase", "M0,0 C0.45,0.05 0,1 1,1");
+
     // Create main timeline
     tl.current = gsap.timeline()
-    
-      .to(".path_1", {
+
+      .to(".testo_preloader", {
         opacity: 1,
-        duration: 1,
-        delay: 0.5,
-        ease: "power2.inOut"
+        duration:1.5,
+        ease: "power2.inOut",
+        delay: 0.5
       })
+
+      .to(".logo", {
+        transform: "translateY(0)",
+        duration: 1.5,
+        ease: "logoEase"
+      })
+    
+      // .to(".path_1", {
+      //   opacity: 1,
+      //   duration: 1,
+      //   delay: 0,
+      //   ease: "power2.inOut"
+      // })
       .to(".path_2", {
         opacity: 1,
         duration: 1,
@@ -53,21 +78,30 @@ function Preloader() {
   return (
     <div
       ref={preloader}
-      className="preloader fixed top-0 h-screen w-screen z-[9999] opacity-1  bg-white"
+      className="preloader bg-white  fixed top-0 h-screen w-screen z-[9999] opacity-100 px-4"
     >
       <div className="preloader_container h-screen v-screen relative">
+
+
+        {router.pathname === "/" ? (
+          <div className="absolute w-1/2 h-full left-0 top-0  flex items-center justify-center text-grey max-w-md opacity-0 testo_preloader">
+            {settings.data.testo}
+          </div>
+        ) : null}
+
+
         <div className="absolute top-0 w-full h-full logo_preloader flex justify-center items-center z-30 mix-blend-difference">
-          <div className="w-[220px] max-w-full">
+          <div className="w-[220px] max-w-full translate-y-[60vh] logo">
             <svg
               width="332"
               height="422"
               viewBox="0 0 332 422"
               fill="none"
-              className="w-full h-auto logo "
+              className="w-full h-auto  "
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                className="path_1 opacity-0"
+                className="path_1 opacity-100"
                 d="M174.204 315C160.004 315 146.104 312.3 132.504 306.9C112.704 299.1 96.8043 286.1 84.8043 267.9C72.8043 249.7 66.8043 228.4 66.8043 204C66.8043 180.6 72.7043 159.5 84.5043 140.7C96.3043 121.7 112.404 108.1 132.804 99.9C144.404 95.3 157.104 93 170.904 93C181.104 93 192.504 94.9 205.104 98.7C206.104 98.9 208.304 99.5 211.704 100.5C215.104 101.3 218.004 101.7 220.404 101.7C224.004 101.7 226.404 100.6 227.604 98.4C228.804 96.2 229.204 93 228.804 88.8H229.704L264.204 154.2H263.004C256.204 146 248.704 138.1 240.504 130.5C232.304 122.9 224.004 116.5 215.604 111.3C207.604 106.5 200.004 102.8 192.804 100.2C185.804 97.4 178.504 96 170.904 96C158.504 96 147.004 99.5 136.404 106.5C123.604 114.9 113.604 127.7 106.404 144.9C99.2043 161.9 95.6043 181.6 95.6043 204C95.6043 226 99.1043 245.5 106.104 262.5C113.304 279.3 123.304 292 136.104 300.6C147.304 308.2 160.004 312 174.204 312C200.204 312 218.204 303.7 228.204 287.1C234.804 276.1 238.104 262.1 238.104 245.1C238.104 235.7 236.604 228.3 233.604 222.9C230.604 217.5 225.604 213.8 218.604 211.8V210.9H266.304V211.8C261.704 214 259.404 220.8 259.404 232.2V270C259.404 274.6 260.204 278.1 261.804 280.5C263.604 282.7 266.404 283.9 270.204 284.1V285C257.404 294.2 242.304 301.5 224.904 306.9C207.504 312.3 190.604 315 174.204 315Z"
                 fill="#8993A0"
                 fill-opacity="0.8"

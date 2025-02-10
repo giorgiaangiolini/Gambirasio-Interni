@@ -18,22 +18,16 @@ export default function Servizi({ servizi, settings, locales }) {
         <div className="w-[30%] relative">
           <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
             <FadeIn>
-            <div className="flex flex-col gap-2 uppercase relative">
+            <div className="flex flex-col gap-2 uppercase relative ">
               <div
-                className="absolute left-[0px] transition-transform duration-300 ease-in-out top-[6px]"
+                className="absolute left-[0px] transition-transform duration-300 ease-in-out top-[7px]"
                 style={{
                   transform: `translateY(${selectedIndex * 46}px)`,
                 }}
               >
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="5" cy="5" r="4" fill="currentColor" />
-                </svg>
+                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="4.5" cy="4.5" r="2.5" fill="currentColor"/>
+              </svg>
               </div>
 
               {data.servizi.map((item, index) => (

@@ -72,7 +72,7 @@ function Header({ altLangs, settings }) {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4 font-secondary">
+      <header className={`fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4 font-secondary ${router.pathname === "/" ? "bg-transparent" : "bg-white"}`}>
         <div className="flex items-center justify-between gap-2">
           <div className="w-1/3">
             <Link href="/">
@@ -80,16 +80,16 @@ function Header({ altLangs, settings }) {
             </Link>
           </div>
 
-          <div className="flex items-center gap-3 justify-center w-1/3">
+          <div className="flex items-center gap-4 justify-center w-1/3 mix-blend-difference">
             {settings.data.header[0].link.map((item, i) => {
               return (
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={`uppercase text-grey font-secondary leading-none relative group`}
+                  className={` header_link ${router.pathname.includes(item.text.toLowerCase()) ? 'active_link' : ''} uppercase text-grey  font-secondary leading-none relative group`}
                 >
                   {item.text}
-                  <div className={`absolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? '!w-full' : ''}`}></div>
+                  {/* <div className={`header_linka bsolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? 'active_link' : ''}`}></div> */}
                 </PrismicLink>
               );
             })}

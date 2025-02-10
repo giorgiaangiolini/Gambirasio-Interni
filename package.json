@@ -22,6 +22,8 @@
     "@prismicio/next": "^1.7.1",
     "@prismicio/react": "^2.9.1",
     "@prismicio/slice-simulator-react": "^0.2.3",
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
     "@studio-freight/hamo": "^0.6.24",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tailwindcss/forms": "^0.5.6",
@@ -32,6 +34,7 @@
     "flag-icons": "^6.6.6",
     "formik": "^2.4.4",
     "gsap": "file:gsap-bonus.tgz",
+    "html2canvas": "^1.4.1",
     "next": "14.2.0",
     "next-seo": "^6.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -44,7 +47,8 @@
     "react-player": "^2.13.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.62.0",
-    "swiper": "^9.3.2"
+    "swiper": "^9.3.2",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.7",

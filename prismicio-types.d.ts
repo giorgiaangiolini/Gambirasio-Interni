@@ -668,48 +668,15 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */;
   header: prismic.GroupField<Simplify<SettingsDocumentDataHeaderItem>> /**
-   * Title field in *Settings*
+   * testo field in *Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.title
+   * - **API ID Path**: settings.testo
    * - **Tab**: PRELOADER
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
-  title: prismic.KeyTextField;
-
-  /**
-   * Subtitle field in *Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.subtitle
-   * - **Tab**: PRELOADER
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  subtitle: prismic.KeyTextField;
-
-  /**
-   * video field in *Settings*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.video
-   * - **Tab**: PRELOADER
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  video: prismic.LinkToMediaField<prismic.FieldState, never>;
-
-  /**
-   * video poster field in *Settings*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.video_poster
-   * - **Tab**: PRELOADER
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  video_poster: prismic.ImageField<never>;
+  testo: prismic.KeyTextField;
 }
 
 /**

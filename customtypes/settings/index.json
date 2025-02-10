@@ -51,34 +51,11 @@
       }
     },
     "PRELOADER": {
-      "title": {
+      "testo": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "testo",
           "placeholder": ""
-        }
-      },
-      "subtitle": {
-        "type": "Text",
-        "config": {
-          "label": "Subtitle",
-          "placeholder": ""
-        }
-      },
-      "video": {
-        "type": "Link",
-        "config": {
-          "label": "video",
-          "placeholder": "",
-          "select": "media"
-        }
-      },
-      "video_poster": {
-        "type": "Image",
-        "config": {
-          "label": "video poster",
-          "constraint": {},
-          "thumbnails": []
         }
       }
     }

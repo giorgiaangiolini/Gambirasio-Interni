@@ -16,8 +16,8 @@ const Layout = ({ children, altLangs, menu, meta, settings }) => {
   return (
     <>
         <NextHead meta={meta} settings={settings}/>
-
-        {/* {!preloaderCtx.end && <Preloader/>} */}
+    
+        {!preloaderCtx.end && <Preloader settings={settings} />}
 
        
           <Header altLangs={altLangs} settings={settings}/>

@@ -41,7 +41,7 @@ const SlideshowServizi = ({ content, index }) => {
       });
     }
   }, [index])
-  
+
 
   return(
     <div ref={slideRef} className='h-full w-full pointer-events-none'>    
@@ -50,8 +50,9 @@ const SlideshowServizi = ({ content, index }) => {
             modules={[Navigation, A11y]}
             spaceBetween={20}
             slidesPerView={1}
-            speed={600}
+            speed={800}
             loop={true}
+            easing='cubic-bezier(0.4, 0, 0.2, 1)'
             initialSlide={index || 0}
             className='h-full w-full'
           >

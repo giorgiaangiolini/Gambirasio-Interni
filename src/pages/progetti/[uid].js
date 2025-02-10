@@ -29,10 +29,12 @@ export default function Progetto({ page, settings }) {
             <FadeStagger>
             <div className="flex flex-col gap-1">
               {data.immagini.map((img, i) => (
-                <div key={i} className="w-full flex justify-end" style={{height: 'calc(100vh - 90px)'}}>
+                <div
+                key={i} className="w-full flex justify-end h-[calc(100vh-90px)]">
                   <PrismicNextImage
                     field={img.immagine}
                     className="w-auto h-full object-cover"
+                    alt={img.immagine?.alt}
                   />
                 </div>
               ))}
