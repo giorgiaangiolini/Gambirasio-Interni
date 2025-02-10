@@ -5,48 +5,35 @@
  * 
  */
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Navigation, A11y, Virtual, Autoplay } from 'swiper';
+import { Mousewheel, Navigation, A11y, Virtual, Autoplay, Keyboard } from 'swiper';
 import SwiperCore from 'swiper';
 import { PrismicNextImage } from '@prismicio/next';
 
 SwiperCore.use([Navigation, Autoplay, A11y]);
 
 const Slideshow = ({ slice }) => {
-  console.log(slice, "slice");
   
   const slideRef = useRef();
+  const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const playActiveVideo = () => {
-      const active = slideRef.current.querySelector(".swiper-slide-active");
-      const activeVideo = active.querySelector("video");
-      if (activeVideo) {
-        activeVideo.play().catch(e => console.log("Video playback failed:", e));
-      }
-    };
 
-    // Play video on initial load
-    playActiveVideo();
+  useEffect(()=>{
 
-    // Setup slide change observer
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class' && 
-            mutation.target.classList.contains('swiper-slide-active')) {
-          playActiveVideo();
-        }
+    let videos = slideRef.current.querySelectorAll("video");
+    videos.forEach(item => {
+      item.pause()
+    });
+
+    let active = slideRef.current.querySelector(".swiper-slide-active");
+    let video = active.querySelectorAll("video");
+    if(video){
+      video.forEach(item => {
+        item.play()
       });
-    });
-
-    const slides = slideRef.current.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => {
-      observer.observe(slide, { attributes: true });
-    });
-
-    return () => observer.disconnect();
-  }, []);
+    }
+  }, [index])
 
   return (
     <section
@@ -56,9 +43,12 @@ const Slideshow = ({ slice }) => {
       <div ref={slideRef} className="h-screen">
         <Swiper
           direction="vertical"
-          modules={[Mousewheel, A11y]}
+          modules={[Mousewheel, A11y, Keyboard]}
           spaceBetween={0}
           slidesPerView={1}
+          keyboard={{
+            enabled: true,
+          }}
           mousewheel={{
             sensitivity: 1,
             thresholdDelta: 2
@@ -66,6 +56,9 @@ const Slideshow = ({ slice }) => {
           speed={1000}
           grabCursor={true}
           className="h-full w-full"
+          onSlideChange={(swiper) => {
+            setIndex(swiper.activeIndex);
+          }}
         >
           {slice.primary.slideshow?.map((item, index) => {
             if (item.immagine?.url) {

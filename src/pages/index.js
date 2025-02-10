@@ -24,7 +24,7 @@ export default function Home({ home, settings, locales }) {
         </FadeIn>
       </div>
       <div className="absolute h-screen w-screen top-0 left-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="w-[220px] animate-[rotateX_3s_linear_infinite]">
+        <div className="w-[220px] ">
           <svg
             width="332"
             height="422"

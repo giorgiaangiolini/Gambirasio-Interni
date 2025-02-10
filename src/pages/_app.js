@@ -8,6 +8,17 @@ import localFont from 'next/font/local'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { PreloaderCtxProvider } from "../../context/preloaderContext";
 import TransitionComponent from '../components/Animations/transition';
+
+const charlotte = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Charlottenburg-Classic.woff',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+});
+
 const helvetica = localFont({
   src: [
     {
@@ -137,7 +148,7 @@ export default function App({ Component, pageProps }) {
           :root {
             /* ... */
               --helvetica-font: ${helvetica.style.fontFamily};
-            }
+              --charlotte-font: ${charlotte.style.fontFamily};
         `}</style>
 
         

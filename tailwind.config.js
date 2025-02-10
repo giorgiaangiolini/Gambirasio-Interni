@@ -41,7 +41,7 @@ module.exports = {
     },
     fontFamily: {
       primary: "Helvetica",
-      secondary: "Times"
+      secondary: "var(--charlotte-font)"
     },
     fontSize: {
       'base': '16px',  

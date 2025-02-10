@@ -26,7 +26,11 @@ const NextHead = ({meta, settings}) => {
   return (
     <>
       <Head>
-      <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
+      <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-96x96.png" sizes="96x96" />
+      <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+      <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+      <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
       <link rel="canonical" href={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${router.asPath}`} />
       </Head>
       

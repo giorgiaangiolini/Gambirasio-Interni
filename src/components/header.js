@@ -72,7 +72,7 @@ function Header({ altLangs, settings }) {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4">
+      <header className="fixed left-0 top-0 z-50 w-full px-[16px] py-1 md:px-4 font-secondary">
         <div className="flex items-center justify-between gap-2">
           <div className="w-1/3">
             <Link href="/">
@@ -82,7 +82,6 @@ function Header({ altLangs, settings }) {
 
           <div className="flex items-center gap-3 justify-center w-1/3">
             {settings.data.header[0].link.map((item, i) => {
-              console.log(router.pathname, item.text, "ciao")
               return (
                 <PrismicLink
                   key={item.key}
