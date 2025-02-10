@@ -9,8 +9,6 @@ if (typeof window !== "undefined"){
 
 const FadeIn = ({children, className}) => {
 
-  console.log(className, "ciao")
-
   const fadeRef = useRef(); 
 
   useGSAP(()=>{

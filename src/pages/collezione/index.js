@@ -24,10 +24,8 @@ export default function Collezioni({ collezioni, settings, locales }) {
     );
   }, [collezioni, selectedTag]);
 
-  // console.log(`${data.data.cover_01?.url}?blur=5&w=1`)
-
   return (
-    <Layout settings={settings} meta={data} altLangs={locales}>
+    <Layout settings={settings} meta={data} altLangs={settings.alternate_languages}>
       <div className="flex min-h-screen pt-8 pb-2 px-4">
         <div className="w-[30%]">
           <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
@@ -75,7 +73,6 @@ export default function Collezioni({ collezioni, settings, locales }) {
           <div className="flex flex-col gap-1">
             <FadeStagger>
               {filteredCollezioni.map((item, i) => {
-                console.log(`${item.data.cover_02?.url}?blur=5&w=1`, "ciao");
                 return (
                   <Link key={i} href={`/collezione/${item.uid}`}>
                     <div key={i} className="w-full">

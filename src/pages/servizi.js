@@ -7,13 +7,13 @@ import { PrismicNextImage } from "@prismicio/next";
 import SlideshowServizi from "../components/slideshow-servizi";
 import FadeIn from "@/components/Animations/FadeIn";
 
-export default function Servizi({ servizi, settings, locales }) {
+export default function Servizi({ servizi, settings }) {
   const { data } = servizi;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <Layout settings={settings} meta={servizi.data} altLangs={locales}>
+    <Layout settings={settings} meta={servizi.data} altLangs={servizi.alternate_languages}>
       <div className="flex min-h-screen pt-8 pb-2 px-4 gap-4">
         <div className="w-[30%] relative">
           <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
@@ -43,14 +43,14 @@ export default function Servizi({ servizi, settings, locales }) {
             </FadeIn>
           </div>
           <div className="absolute bottom-0 left-0 w-full text-grey">
-            <FadeIn className={"h-full"}>
+            {/* <FadeIn className={"h-full"}> */}
               <PrismicRichText
                 field={data.servizi[selectedIndex].descrizione}
                 components={{
                   paragraph: ({children}) => <p className="text-[14px]">{children}</p>
                 }}
               />
-            </FadeIn>
+            {/* </FadeIn> */}
           </div>
         </div>
 
@@ -72,7 +72,6 @@ export async function getStaticProps({ params, locale, previewData }) {
 
     const settings = await client.getSingle("settings", { lang: locale });
 
-    const locales = await getLocales(servizi, client);
 
     if (!servizi || !settings) {
       return { notFound: true };
@@ -82,7 +81,6 @@ export async function getStaticProps({ params, locale, previewData }) {
       props: {
         servizi,
         settings,
-        locales,
       },
     };
   } catch (e) {

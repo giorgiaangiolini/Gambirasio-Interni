@@ -12,7 +12,7 @@ export default function Home({ home, settings, locales }) {
   const { data } = home;
 
   return (
-    <Layout settings={settings} meta={data} altLangs={locales}>
+    <Layout settings={settings} meta={data} altLangs={home.alternate_languages}>
       <SliceZone
         slices={home.data.slices}
         context={settings}
@@ -60,8 +60,6 @@ export async function getStaticProps({ params, locale, previewData }) {
 
     const settings = await client.getSingle("settings", { lang: locale });
 
-    const locales = await getLocales(home, client);
-
     if (!home || !settings) {
       return { notFound: true };
     }
@@ -70,7 +68,6 @@ export async function getStaticProps({ params, locale, previewData }) {
       props: {
         home,
         settings,
-        locales,
       },
     };
   } catch (e) {

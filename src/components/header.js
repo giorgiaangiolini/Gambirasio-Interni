@@ -95,7 +95,13 @@ function Header({ altLangs, settings }) {
             })}
           </div>
 
-          <div className="w-1/3"></div>
+          <div className="w-1/3">
+            {altLangs[0]   ? (
+              <div className='flex justify-end'>
+              <LanguageSwitcher altLangs={altLangs} />
+            </div>
+            ): (null)}
+          </div>
         </div>
       </header>
 

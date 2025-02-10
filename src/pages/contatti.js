@@ -6,7 +6,7 @@ import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
 import TextAnimation from "@/components/Animations/TextAnimation";
 import FadeIn from '@/components/Animations/FadeIn';
-export default function Contatti({contatti, settings, locales}) {
+export default function Contatti({contatti, settings}) {
 
   const {data} = contatti;
 
@@ -14,7 +14,7 @@ export default function Contatti({contatti, settings, locales}) {
      <Layout
       settings={settings}
       meta={data}
-      altLangs={locales}
+      altLangs={contatti.alternate_languages}
      >
       <div className="flex md:flex-row flex-col h-screen pt-8 pb-2 gap-4 md:px-4">
         <div className="md:w-1/2 w-full flex items-center">

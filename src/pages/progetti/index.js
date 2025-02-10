@@ -6,7 +6,7 @@ import Link from 'next/link';
 import FadeStagger from '@/components/Animations/FadeStagger';
 import { getLocales } from '../../../helpers/getLocales';
 
-export default function Progetti({progetti, settings, locales}) {
+export default function Progetti({progetti, settings}) {
 
   const {data} = progetti;
 
@@ -14,7 +14,7 @@ export default function Progetti({progetti, settings, locales}) {
      <Layout
       settings={settings}
       meta={data}
-      altLangs={locales}
+      altLangs={settings.alternate_languages}
      >    
        <FadeStagger>
        <div className="grid grid-cols-3 gap-1 pt-8 pb-2 md:px-4">
