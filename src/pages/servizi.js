@@ -5,7 +5,7 @@ import { getLocales } from "../../helpers/getLocales";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import SlideshowServizi from "../components/slideshow-servizi";
-import FadeIn from "@/components/Animations/FadeIn";
+import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 
 export default function Servizi({ servizi, settings }) {
   const { data } = servizi;
@@ -17,7 +17,7 @@ export default function Servizi({ servizi, settings }) {
       <div className="flex min-h-screen pt-8 pb-2 px-4 gap-4">
         <div className="w-[30%] relative">
           <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
-            <FadeIn>
+            <FadeInAnimation>
             <div className="flex flex-col gap-2 uppercase relative ">
               <div
                 className="absolute left-[0px] transition-transform duration-300 ease-in-out top-[7px]"
@@ -40,10 +40,10 @@ export default function Servizi({ servizi, settings }) {
                 </button>
               ))}
             </div>
-            </FadeIn>
+            </FadeInAnimation>
           </div>
           <div className="absolute bottom-0 left-0 w-full text-grey">
-            {/* <FadeIn className={"h-full"}> */}
+            {/* <FadeInAnimation className={"h-full"}> */}
               <PrismicRichText
                 field={data.servizi[selectedIndex].descrizione}
                 components={{
@@ -55,9 +55,9 @@ export default function Servizi({ servizi, settings }) {
         </div>
 
         <div className="w-[70%]">
-          <FadeIn className={"h-full"}>
+          <FadeInAnimation className={"h-full"}>
             <SlideshowServizi index={selectedIndex} content={data.servizi} />
-          </FadeIn>
+          </FadeInAnimation>
         </div>
       </div>
     </Layout>

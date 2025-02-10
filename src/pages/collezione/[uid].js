@@ -3,7 +3,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "../../../prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import FadeStagger from "@/components/Animations/FadeStagger";
-import FadeIn from "@/components/Animations/FadeIn";
+import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 
 export default function Oggetto({ page, settings }) {
   const { data } = page;
@@ -13,7 +13,7 @@ export default function Oggetto({ page, settings }) {
       <div className="flex min-h-screen pt-8 pb-2 md:px-4">
         <div className="w-[30%]">
           <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
-            <FadeIn>{data.descrizione}</FadeIn>
+            <FadeInAnimation>{data.descrizione}</FadeInAnimation>
           </div>
         </div>
         <div className="w-[70%]">

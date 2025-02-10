@@ -7,7 +7,7 @@ if (typeof window !== "undefined"){
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const FadeIn = ({children, className}) => {
+const FadeInAnimation = ({children, className}) => {
 
   const fadeRef = useRef(); 
 
@@ -31,4 +31,4 @@ const FadeIn = ({children, className}) => {
   )
 }
 
-export default FadeIn
+export default FadeInAnimation

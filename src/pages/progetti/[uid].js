@@ -4,7 +4,7 @@ import { createClient } from "../../../prismicio";
 import { SliceZone } from "@prismicio/react";
 import { PrismicNextImage } from '@prismicio/next';
 import FadeStagger from "@/components/Animations/FadeStagger";
-import FadeIn from '@/components/Animations/FadeIn';
+import FadeInAnimation from '@/components/Animations/FadeInAnimation';
 export default function Progetto({ page, settings }) {
 
   const {data} = page;
@@ -18,9 +18,9 @@ export default function Progetto({ page, settings }) {
         <div className="flex min-h-screen pt-8 pb-2 md:px-4">
           <div className="w-[30%]">
             <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
-            <FadeIn>
+            <FadeInAnimation>
               {data.descrizione_progetto}
-              </FadeIn>
+              </FadeInAnimation>
             </div>
            
           </div>

@@ -5,7 +5,7 @@ import { SliceZone } from "@prismicio/react";
 import { getLocales } from "../../helpers/getLocales";
 import { components } from "@/slices";
 import Slideshow from "@/components/slideshow";
-import FadeIn from '@/components/Animations/FadeIn';
+import FadeInAnimation from '@/components/Animations/FadeInAnimation';
 
 
 export default function Home({ home, settings, locales }) {
