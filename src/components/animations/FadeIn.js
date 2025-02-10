@@ -7,7 +7,9 @@ if (typeof window !== "undefined"){
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const FadeIn = ({children}) => {
+const FadeIn = ({children, className}) => {
+
+  console.log(className, "ciao")
 
   const fadeRef = useRef(); 
 
@@ -27,7 +29,7 @@ const FadeIn = ({children}) => {
 
 
   return (
-    <div ref={fadeRef} className='fade_in'>{children}</div>
+    <div ref={fadeRef} className={`fade_in ${className}`}>{children}</div>
   )
 }
 
