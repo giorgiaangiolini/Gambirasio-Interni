@@ -49,7 +49,7 @@ const richTextComponents = {
   heading3: ({ children }) => <h3 className="font-regular text-md2">{children}</h3>,
   heading4: ({ children }) => <h4 className="font-regular text-md">{children}</h4>,
   heading5: ({ children }) => <h5 className="font-regular heading_h5 md:text-lg text-md2">{children}</h5>,
-  paragraph: ({ children }) => <p className="font-regular text-base leading-relaxed">{children}</p>,
+  paragraph: ({ children }) => <p className="font-regular md:text-base text-sm leading-relaxed">{children}</p>,
   oList: ({ children }) => (
     <ol className="ordered-list">{children}</ol>
   ),

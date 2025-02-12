@@ -15,16 +15,16 @@ export default function Progetto({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-        <div className="flex min-h-screen pt-8 pb-2 md:px-4">
-          <div className="w-[30%]">
-            <div className="sticky top-[50vh] -translate-y-1/2 pr-8 text-grey">
+        <div className="flex md:flex-row flex-col min-h-screen md:pt-8 pt-6 pb-2 md:px-4 px-1">
+          <div className="md:w-[30%] w-full">
+            <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey md:text-base text-xs md:mb-0 mb-2">
             <FadeInAnimation>
               {data.descrizione_progetto}
               </FadeInAnimation>
             </div>
            
           </div>
-          <div className="w-[70%]">
+          <div className="md:w-[70%] w-full">
             
             <FadeStagger>
             <div className="flex flex-col gap-1">

@@ -237,6 +237,17 @@ type OggettoDocumentDataSlicesSlice = never;
  */
 interface OggettoDocumentData {
   /**
+   * Data field in *Oggetto*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: oggetto.data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  data: prismic.DateField;
+
+  /**
    * Cover 01 field in *Oggetto*
    *
    * - **Field Type**: Image
@@ -371,6 +382,17 @@ type ProgettoDocumentDataSlicesSlice = never;
  * Content for Progetto documents
  */
 interface ProgettoDocumentData {
+  /**
+   * Data field in *Progetto*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: progetto.data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  data: prismic.DateField;
+
   /**
    * Cover 01 field in *Progetto*
    *

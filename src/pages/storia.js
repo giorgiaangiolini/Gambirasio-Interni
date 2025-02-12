@@ -16,10 +16,10 @@ export default function Storia({storia, settings, locales}) {
       meta={data}
       altLangs={locales}
      >
-      <div className="flex md:flex-row flex-col h-screen pt-8 pb-2 gap-4  md:px-4">
+      <div className="flex md:flex-row flex-col-reverse md:h-scree h-auto md:pt-8 pt-6 pb-2 md:gap-4 gap-2 md:px-4 px-1">
         <div className="md:w-1/2 w-full flex items-center">
           <FadeInAnimation>
-          <div className="pr-2 text-grey max-w-[500px]">
+          <div className="md:pr-2 text-grey max-w-[500px]">
             <PrismicRichText field={data.testo} />
           </div>
           </FadeInAnimation>

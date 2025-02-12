@@ -12,6 +12,13 @@
           "label": "UID"
         }
       },
+      "data": {
+        "type": "Date",
+        "config": {
+          "label": "Data",
+          "placeholder": ""
+        }
+      },
       "cover_01": {
         "type": "Image",
         "config": {

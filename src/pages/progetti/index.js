@@ -17,7 +17,7 @@ export default function Progetti({progetti, settings}) {
       altLangs={settings.alternate_languages}
      >    
        <FadeStagger>
-       <div className="grid grid-cols-3 gap-1 pt-8 pb-2 md:px-4">
+       <div className="grid md:grid-cols-3 grid-cols-1 md:gap-1 gap-2 md:pt-8 pt-6 pb-2 md:px-4 px-1">
          {progetti.map((progetto, i) => (
            <Link href={`/progetti/${progetto.uid}`}>
              <div key={i} className="w-full">
@@ -33,7 +33,7 @@ export default function Progetti({progetti, settings}) {
                   />
                 </div>
               </div>
-              <div className="text-grey leading-none py-1 text-s">
+              <div className="text-grey leading-none py-1 md:text-s text-xs">
                   <p>{progetto.data.didascalia}</p>
               </div>
              </div>
@@ -52,7 +52,12 @@ export async function getStaticProps({ params, locale, previewData }) {
 
   try{
 
-    const progetti = await client.getAllByType("progetto",{ lang: locale}
+    const progetti = await client.getAllByType("progetto",{ 
+      orderings: {
+        field: "my.progetto.data",
+        direction: "desc",
+      },
+      lang: locale}
    );
 
     const settings = await client.getSingle("settings",{ lang: locale});

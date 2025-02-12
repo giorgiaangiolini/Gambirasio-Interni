@@ -47,6 +47,7 @@ module.exports = {
       'base': '16px',  
       'm': '18px',
       'sm': '14px',
+      'xs': '12px',
     },
     fontWeights: {
       'thin': 200,

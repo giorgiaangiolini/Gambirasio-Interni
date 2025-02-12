@@ -78,20 +78,20 @@ const router = useRouter();
   return (
     <div
       ref={preloader}
-      className="preloader bg-white  fixed top-0 h-screen w-screen z-[9999] opacity-100 px-4"
+      className="preloader bg-white  fixed top-0 h-screen w-screen z-[9999] opacity-100 md:px-4 px-1"
     >
       <div className="preloader_container h-screen v-screen relative">
 
 
         {router.pathname === "/" ? (
-          <div className="absolute w-1/2 h-full left-0 top-0  flex items-center justify-center text-grey max-w-md opacity-0 testo_preloader">
+          <div className="md:absolute fixed md:w-1/2 w-full h-full left-0 md:top-0 top-auto bottom-2  flex items-center justify-center text-grey max-w-md opacity-0 testo_preloader md:text-base text-sm">
             {settings.data.testo}
           </div>
         ) : null}
 
 
         <div className="absolute top-0 w-full h-full logo_preloader flex justify-center items-center z-30 mix-blend-difference">
-          <div className="w-[220px] max-w-full translate-y-[60vh] logo">
+          <div className="md:w-[220px] w-[120px] max-w-full translate-y-[60vh] logo">
             <svg
               width="332"
               height="422"
