@@ -1,10 +1,14 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { createClient } from "../../prismicio";
 import Layout from "../../components/layout";
 import { getLocales } from "../../../helpers/getLocales";
 import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
 import FadeStagger from "@/components/Animations/FadeStagger";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+
 export default function Collezioni({ collezioni, settings, locales }) {
   const { data } = settings;
 
@@ -24,9 +28,31 @@ export default function Collezioni({ collezioni, settings, locales }) {
     );
   }, [collezioni, selectedTag]);
 
+  const contentRef = useRef(null);
+
+  useGSAP(() => {
+    // Clear any existing animations
+    gsap.killTweensOf(".collezione_card");
+    gsap.set(".collezione_card", { opacity: 0 });
+    // Animate fade in of collection cards
+    gsap.fromTo(
+      ".collezione_card",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        stagger: 0.1,
+        ease: "power3.out"
+      }
+    );
+
+  }, [selectedTag]);
+
   return (
     <Layout settings={settings} meta={data} altLangs={settings.alternate_languages}>
-      <div className="flex md:flex-row flex-col min-h-screen md:pt-8 pt-6 pb-2 md:px-4 px-1">
+      <div ref={contentRef} className="flex md:flex-row flex-col min-h-screen md:pt-8 pt-6 pb-2 md:px-4 px-1">
         <div className="md:w-[30%] w-full">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
             <div className="flex md:flex-col md:gap-1 gap-3 uppercase relative md:text-base text-xs">
@@ -74,7 +100,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
           <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px]">
               {filteredCollezioni.map((item, i) => {
                 return (
-                  <Link key={i} href={`/collezione/${item.uid}`}>
+                  <Link className="collezione_card" key={i} href={`/collezione/${item.uid}`}>
                     <div key={i} className="w-full">
                       <div className="relative w-full group overflow-hidden aspect-4-5">
                         <div

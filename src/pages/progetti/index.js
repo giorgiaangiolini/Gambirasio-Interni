@@ -29,7 +29,7 @@ export default function Progetti({progetti, settings}) {
                   />
                   <PrismicNextImage 
                     field={progetto.data.cover_02}
-                    className="absolute inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+                    className="absolute inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 md:block hidden"
                   />
                 </div>
               </div>

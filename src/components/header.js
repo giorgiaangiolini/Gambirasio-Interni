@@ -75,7 +75,7 @@ function Header({ altLangs, settings }) {
         <div className="flex items-center justify-between gap-2">
           <div className="md:w-1/3">
             <Link href="/">
-              <h1 className="font-secondary uppercase text-grey md:text-[26px] text-[24px]leading-none">
+              <h1 className="font-secondary uppercase text-grey md:text-[26px] text-[25px] leading-none">
                 Gambirasio Interni
               </h1>
             </Link>
@@ -107,9 +107,18 @@ function Header({ altLangs, settings }) {
           <div
             role="button"
             onClick={() => toggleOpen()}
-            className="md:hidden block text-grey"
+            className="md:hidden flex items-center justify-center text-grey"
           >
-            <svg
+
+            <button className="group">
+              <div className="grid justify-items-center relative h-[10px] w-3">
+                <span className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0  ${mobileOpen ? "rotate-45 translate-y-[4.5px]" : "translate-y-0"}`}></span>
+                <span className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0 ${mobileOpen ? "-rotate-45 translate-y-[4.5px]" : "translate-y-[9px]"}`}></span>
+              </div>
+            </button>
+
+
+            {/* <svg
               width="24"
               height="9"
               viewBox="0 0 24 9"
@@ -118,7 +127,8 @@ function Header({ altLangs, settings }) {
             >
               <line y1="8.5" x2="24" y2="8.5" stroke="#8993A0" />
               <line y1="0.5" x2="24" y2="0.5" stroke="#8993A0" />
-            </svg>
+            </svg> */}
+            
           </div>
         </div>
       </header>
