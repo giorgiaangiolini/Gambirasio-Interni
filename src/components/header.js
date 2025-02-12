@@ -73,7 +73,7 @@ function Header({ altLangs, settings }) {
         className={`fixed md:hover:bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary ${router.pathname === "/" ? "bg-transparent" : "bg-white "} `}
       >
         <div className="flex items-center justify-between gap-2">
-          <div className="md:w-1/3">
+          <div className="lg:w-1/3 md:w-auto">
             <Link href="/">
               <h1 className="font-secondary uppercase text-grey md:text-[26px] text-[25px] leading-none">
                 Gambirasio Interni
@@ -81,7 +81,7 @@ function Header({ altLangs, settings }) {
             </Link>
           </div>
 
-          <div className="md:flex hidden items-center gap-4 justify-center w-1/3">
+          <div className="md:flex hidden items-center gap-4 justify-center lg:w-1/3 w-auto">
             {settings.data.header[0].link.map((item, i) => {
               return (
                 <PrismicLink
@@ -96,7 +96,7 @@ function Header({ altLangs, settings }) {
             })}
           </div>
 
-          <div className="w-1/3 md:block hidden">
+          <div className="lg:w-1/3 w-auto lg:block hidden ">
             {altLangs[0] ? (
               <div className="flex justify-end">
                 <LanguageSwitcher altLangs={altLangs} />
