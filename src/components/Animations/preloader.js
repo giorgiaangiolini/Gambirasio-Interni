@@ -84,14 +84,14 @@ const router = useRouter();
 
 
         {router.pathname === "/" ? (
-          <div className="md:absolute fixed md:w-1/2 w-full h-full left-0 md:top-0 top-auto bottom-2  flex items-center justify-center text-grey max-w-md opacity-0 testo_preloader md:text-base text-sm">
+          <div className="md:absolute fixed md:w-1/2 w-[calc(100vw-20px)] md:h-full h-auto md:left-0 left-1 md:top-0 top-auto bottom-2  flex items-center justify-center text-grey max-w-md opacity-0 testo_preloader md:text-base text-sm ">
             {settings.data.testo}
           </div>
         ) : null}
 
 
         <div className="absolute top-0 w-full h-full logo_preloader flex justify-center items-center z-30 mix-blend-difference">
-          <div className="md:w-[220px] w-[120px] max-w-full translate-y-[60vh] logo">
+          <div className="md:w-[220px] w-[120px] max-w-full md:translate-y-[60vh] translate-y-[-80vh] logo">
             <svg
               width="332"
               height="422"

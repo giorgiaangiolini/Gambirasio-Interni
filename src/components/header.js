@@ -70,7 +70,7 @@ function Header({ altLangs, settings }) {
   return (
     <>
       <header
-        className={`fixed md:hover:bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary ${router.pathname === "/" ? "bg-transparent" : "bg-white "} ${expanded ? "!bg-white" : ""}`}
+        className={`fixed md:hover:bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary ${router.pathname === "/" ? "bg-transparent" : "bg-white "} `}
       >
         <div className="flex items-center justify-between gap-2">
           <div className="md:w-1/3">
@@ -106,7 +106,7 @@ function Header({ altLangs, settings }) {
 
           <div
             role="button"
-            onClick={() => toggleOpen(!expanded)}
+            onClick={() => toggleOpen()}
             className="md:hidden block text-grey"
           >
             <svg
