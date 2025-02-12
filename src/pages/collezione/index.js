@@ -34,7 +34,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
               <div
                 className="absolute left-[0px] transition-transform duration-300 ease-in-out top-[7px] md:block hidden"
                 style={{
-                  transform: `translateY(${selectedTag === null ? 0 : (uniqueTags.indexOf(selectedTag) + 1) * 36}px)`,
+                  transform: `translateY(${selectedTag === null ? 0 : (uniqueTags.indexOf(selectedTag) + 1) * 34}px)`,
                 }}
               >
                 <svg
@@ -49,7 +49,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
               </div>
 
               <button
-                className={`text-left hover:opacity-70 transition-all duration-300 ease-in-out uppercase  ${selectedTag === null ? "md:translate-x-[25px] underline" : ""}`}
+                className={`text-left hover:opacity-70 transition-all duration-300 ease-in-out uppercase  ${selectedTag === null ? "md:translate-x-[25px] underline md:no-underline" : ""}`}
                 onClick={() => setSelectedTag(null)}
               >
                 Tutti
@@ -57,7 +57,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
               {uniqueTags.map((tag, index) => (
                 <button
                   key={index}
-                  className={`text-left hover:opacity-70 transition-all duration-300 ease-in-out uppercase ${selectedTag === tag ? "md:translate-x-[25px] underline" : ""}`}
+                  className={`text-left hover:opacity-70 transition-all duration-300 ease-in-out uppercase ${selectedTag === tag ? "md:translate-x-[25px] underline md:no-underline" : ""}`}
                   onClick={() =>
                     setSelectedTag(selectedTag === tag ? null : tag)
                   }

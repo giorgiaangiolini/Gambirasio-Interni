@@ -14,22 +14,19 @@ export default function Contatti({contatti, settings}) {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
+ 
   const handleToggleAudio = () => {
-    const active = videoRef.current;
-    const activeVideo = active.querySelector("video");
-    if (activeVideo) {
-      activeVideo.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
   };
 
   useEffect(() => {
-    let active = videoRef.current;
-    let activeVideo = active.querySelector("video");
-    if (activeVideo) {
-      activeVideo.muted = isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
     }
-  }, [isMuted]); 
+  }, [isMuted]);  
 
   return (
      <Layout
