@@ -720,7 +720,126 @@ interface SettingsDocumentData {
    * - **Tab**: PRELOADER
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
-  testo: prismic.KeyTextField;
+  testo: prismic.KeyTextField /**
+   * Testo bottone contatti field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.testo_contatti
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  testo_contatti: prismic.KeyTextField;
+
+  /**
+   * Link codice form field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.link_codice_form
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_codice_form: prismic.KeyTextField;
+
+  /**
+   * Titolo form field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.titolo_form
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_form: prismic.KeyTextField;
+
+  /**
+   * Testo form field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.testo_form
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo_form: prismic.RichTextField;
+
+  /**
+   * Label Nome field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.label_nome
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label_nome: prismic.KeyTextField;
+
+  /**
+   * Label Cognome field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.label_cognome
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label_cognome: prismic.KeyTextField;
+
+  /**
+   * Label Messaggio field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.label_messaggio
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label_messaggio: prismic.KeyTextField;
+
+  /**
+   * Messaggio conferma field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.messaggio_conferma
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  messaggio_conferma: prismic.KeyTextField;
+
+  /**
+   * Messaggio errore field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.messaggio_errore
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  messaggio_errore: prismic.KeyTextField;
+
+  /**
+   * Messaggio policy field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.messaggio_policy
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  messaggio_policy: prismic.RichTextField;
+
+  /**
+   * Bottone invia field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.bottone_invia
+   * - **Tab**: FORM CONTATTI
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bottone_invia: prismic.KeyTextField;
 }
 
 /**

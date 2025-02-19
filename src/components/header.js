@@ -5,7 +5,7 @@ import { LanguageSwitcher } from "./ui/LanguageSwitcher";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
+import BrevoForm from "./BrevoForm";
 function Header({ altLangs, settings }) {
   const { data } = settings;
 
@@ -167,7 +167,7 @@ function Header({ altLangs, settings }) {
           modalOpen ? 'opacity-100 visible' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="h-[500px] max-w-full w-[500px] bg-white flex items-center justify-center border border-grey relative">
+        <div className="h-[90vh] max-w-full w-[700px] bg-white flex items-center justify-center border border-grey relative">
         <button 
           onClick={() => setModalOpen(false)}
           className="absolute top-1 right-1 p-1"
@@ -177,22 +177,10 @@ function Header({ altLangs, settings }) {
             <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 -rotate-45 translate-y-[4.5px]"></span>
           </div>
         </button>
-          <div className="text-center max-w-md mx-auto px-4">
+          <div className="text-center">
             <div className="text-grey text-base">
-            {/* <iframe
-                  width="540"
-                  height="550"
-                  src={settings.data.codice_form}
-                  frameBorder="0"
-                  scrolling="auto"
-                  allowFullScreen
-                  style={{
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    maxWidth: "100%",
-                  }}
-                /> */}
+            
+                <BrevoForm data={settings.data} />
             </div>
           </div>
         </div>

@@ -72,6 +72,89 @@
           "placeholder": ""
         }
       }
+    },
+    "FORM CONTATTI": {
+      "testo_contatti": {
+        "type": "Text",
+        "config": {
+          "label": "Testo bottone contatti",
+          "placeholder": ""
+        }
+      },
+      "link_codice_form": {
+        "type": "Text",
+        "config": {
+          "label": "Link codice form",
+          "placeholder": ""
+        }
+      },
+      "titolo_form": {
+        "type": "Text",
+        "config": {
+          "label": "Titolo form",
+          "placeholder": ""
+        }
+      },
+      "testo_form": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Testo form",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink"
+        }
+      },
+      "label_nome": {
+        "type": "Text",
+        "config": {
+          "label": "Label Nome",
+          "placeholder": ""
+        }
+      },
+      "label_cognome": {
+        "type": "Text",
+        "config": {
+          "label": "Label Cognome",
+          "placeholder": ""
+        }
+      },
+      "label_messaggio": {
+        "type": "Text",
+        "config": {
+          "label": "Label Messaggio",
+          "placeholder": ""
+        }
+      },
+      "messaggio_conferma": {
+        "type": "Text",
+        "config": {
+          "label": "Messaggio conferma",
+          "placeholder": ""
+        }
+      },
+      "messaggio_errore": {
+        "type": "Text",
+        "config": {
+          "label": "Messaggio errore",
+          "placeholder": ""
+        }
+      },
+      "messaggio_policy": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Messaggio policy",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,em,hyperlink"
+        }
+      },
+      "bottone_invia": {
+        "type": "Text",
+        "config": {
+          "label": "Bottone invia",
+          "placeholder": ""
+        }
+      }
     }
   }
 }
