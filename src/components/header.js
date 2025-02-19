@@ -13,6 +13,8 @@ function Header({ altLangs, settings }) {
   const [expanded, setExpanded] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   const menuRef = useRef();
   const linksRef = useRef([]);
 
@@ -70,7 +72,7 @@ function Header({ altLangs, settings }) {
   return (
     <>
       <header
-        className={`fixed md:hover:bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary ${router.pathname === "/" ? "bg-transparent" : "bg-white "} `}
+        className={`fixed bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary  `}
       >
         <div className="flex items-center justify-between gap-2">
           <div className="lg:w-1/3 md:w-auto">
@@ -87,7 +89,7 @@ function Header({ altLangs, settings }) {
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={` header_link tracking-[1px]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-grey  font-secondary leading-none relative group`}
+                  className={` header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-grey  font-secondary leading-none relative group`}
                 >
                   {item.text}
                   {/* <div className={`header_linka bsolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? 'active_link' : ''}`}></div> */}
@@ -96,7 +98,9 @@ function Header({ altLangs, settings }) {
             })}
           </div>
 
-          <div className="lg:w-1/3 w-auto lg:block hidden ">
+          <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
+          <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div>
+
             {altLangs[0] ? (
               <div className="flex justify-end">
                 <LanguageSwitcher altLangs={altLangs} />
@@ -157,6 +161,44 @@ function Header({ altLangs, settings }) {
           </ul>
         </div>
       </div>
+
+      <div 
+        className={`fixed inset-0 z-[999] bg-white/70 transition-opacity duration-300 ease-in-out p-2 flex items-center justify-center  ${
+          modalOpen ? 'opacity-100 visible' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="h-[500px] max-w-full w-[500px] bg-white flex items-center justify-center border border-grey relative">
+        <button 
+          onClick={() => setModalOpen(false)}
+          className="absolute top-1 right-1 p-1"
+        >
+          <div className="grid justify-items-center relative h-[10px] w-2 hover:opacity-50 transition-all duration-300">
+            <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 rotate-45 translate-y-[4.5px]"></span>
+            <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 -rotate-45 translate-y-[4.5px]"></span>
+          </div>
+        </button>
+          <div className="text-center max-w-md mx-auto px-4">
+            <div className="text-grey text-base">
+            {/* <iframe
+                  width="540"
+                  height="550"
+                  src={settings.data.codice_form}
+                  frameBorder="0"
+                  scrolling="auto"
+                  allowFullScreen
+                  style={{
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    maxWidth: "100%",
+                  }}
+                /> */}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </>
   );
 }

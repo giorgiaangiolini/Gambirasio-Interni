@@ -689,7 +689,29 @@ interface SettingsDocumentData {
    * - **Tab**: HEADER
    * - **Documentation**: https://prismic.io/docs/field#group
    */;
-  header: prismic.GroupField<Simplify<SettingsDocumentDataHeaderItem>> /**
+  header: prismic.GroupField<Simplify<SettingsDocumentDataHeaderItem>>;
+
+  /**
+   * Bottone contatti field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.bottone_contatti
+   * - **Tab**: HEADER
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bottone_contatti: prismic.KeyTextField;
+
+  /**
+   * Codice form field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.codice_form
+   * - **Tab**: HEADER
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  codice_form: prismic.KeyTextField /**
    * testo field in *Settings*
    *
    * - **Field Type**: Text

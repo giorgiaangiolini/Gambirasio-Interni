@@ -20,11 +20,11 @@ export default function Home({ home, settings, locales }) {
       />
       <div className="flex md:items-center items-end justify-between md:px-4 px-1 md:absolute fixed md:top-0 top-auto bottom-2 left-0 w-full z-10 bg-transparent md:h-screen h-auto pointer-events-none">
         {/* <FadeIn> */}
-        <div className="text-grey max-w-md md:text-base text-sm">
+        {/* <div className="text-grey max-w-md md:text-base text-sm">
           <TextAnimationHeading>
             {data.testo[0].text}
           </TextAnimationHeading>
-        </div>
+        </div> */}
         {/* </FadeIn> */}
       </div>
       <div className="absolute h-screen w-screen top-0 left-0 flex items-center justify-center z-10 pointer-events-none">
