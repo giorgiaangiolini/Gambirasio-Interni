@@ -31,35 +31,33 @@ const router = useRouter();
       type: "line,words,chars",
       wordsClass: "split-line-custom",
     });
-    let words = split.words ;
+    let words = split.chars ;
  
 
     // Create main timeline
     tl.current = gsap
       .timeline()
 
-      // .to(".testo_preloader", {
-      //   opacity: 1,
-      //   duration: 1.5,
-      //   ease: "power2.inOut",
-      //   delay: 0.5,
-      // })
+      .to(".testo_preloader", {
+        opacity: 1,
+        duration: 0.1,
+        ease: "power2.inOut",
+      })
 
           
             .fromTo(
               words,
               {
-                clipPath: "polygon(-45% 450%, 120% 450%, 120% 450%, -45% 450%)",
-                y: 10,
+                y: 0,
                 autoAlpha: 0,
               },
               {
-                clipPath: "polygon(-45% -45%, 150% -45%, 150% 150%, -45% 150%)",
                 y: 0,
-                duration: 1,
+                duration: 0.5,
                 autoAlpha: 1,
+                delay: 0.5,
                 ease: "titleEase",
-                stagger: 0.1,
+                stagger: 0.01,
               }
             )
 
@@ -90,9 +88,15 @@ const router = useRouter();
             //     preloaderCtx.SetOpenFc();
             //   }
             // })
+            .to(".testo_preloader", {
+              opacity: 0,
+              duration: 1,
+              ease: "power2.inOut",
+            })
             .to(".background", {
               y: "-100%",
               duration: 1,
+              delay: -0.5,
               ease: "power2.inOut",
             })
             .to(".logo", {
@@ -121,13 +125,13 @@ const router = useRouter();
 
       <div className="preloader_container h-screen v-screen relative">
         {router.pathname === "/" ? (
-          <div className="md:absolute fixed md:w-1/2 w-[calc(100vw-20px)] md:h-full h-auto md:left-0 left-1 md:top-0 top-auto bottom-2  flex items-center justify-center text-grey max-w-md md:text-base text-sm  z-20">
-            <h2 className="testo_preloader">{settings.data.testo}</h2>
+          <div className="md:absolute fixed md:w-1/2 w-[calc(100vw-20px)] md:h-full h-auto md:left-0 left-1 md:top-0 top-auto bottom-2  flex items-center justify-center text-[#8993A0] max-w-md md:text-base text-sm  z-20">
+            <h2 className="testo_preloader opacity-0">{settings.data.testo}</h2>
           </div>
         ) : null}
 
         <div className="absolute top-0 w-full h-full logo_preloader flex justify-center items-center z-30 ">
-          <div className="md:w-[220px] w-[120px] max-w-full md:translate-y-[60vh] translate-y-[-80vh] logo">
+          <div className="md:w-[220px] w-[120px] max-w-full md:translate-y-[65vh] translate-y-[-90vh] logo">
             <svg
               width="332"
               height="422"

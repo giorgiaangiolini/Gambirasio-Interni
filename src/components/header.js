@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import BrevoForm from "./BrevoForm";
+
 function Header({ altLangs, settings }) {
   const { data } = settings;
 
@@ -69,6 +70,9 @@ function Header({ altLangs, settings }) {
     }
   };
 
+
+  console.log(settings.data, "ciao")
+
   return (
     <>
       <header
@@ -99,7 +103,10 @@ function Header({ altLangs, settings }) {
           </div>
 
           <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
+
           <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div>
+          
+          {/* <Link target="_blank" rel="noopener noreferrer" href={settings.data.link_codice_form} className="flex justify-end cursor-pointer hover_opacity transition-all duration-300">{settings.data.bottone_contatti}</Link> */}
 
             {altLangs[0] ? (
               <div className="flex justify-end">
@@ -167,7 +174,7 @@ function Header({ altLangs, settings }) {
           modalOpen ? 'opacity-100 visible' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="h-[90vh] max-w-full w-[700px] bg-white flex items-center justify-center border border-grey relative">
+        <div className="h-[90vh] max-w-full w-[700px] bg-white flex items-center justify-center border border-grey relative overflow-scroll">
         <button 
           onClick={() => setModalOpen(false)}
           className="absolute top-1 right-1 p-1"
@@ -180,7 +187,9 @@ function Header({ altLangs, settings }) {
           <div className="text-center">
             <div className="text-grey text-base">
             
-                <BrevoForm data={settings.data} />
+                {/* <BrevoForm data={settings.data} /> */}
+                <iframe width="640" height="705" src={settings.data.link_codice_form} frameborder="0" scrolling="auto" allowfullscreen>
+                </iframe>
             </div>
           </div>
         </div>
