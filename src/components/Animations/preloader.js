@@ -130,6 +130,7 @@ const router = useRouter();
           </div>
         ) : null}
 
+
         <div className="absolute top-0 w-full h-full logo_preloader flex justify-center items-center z-30 ">
           <div className="md:w-[220px] w-[120px] max-w-full md:translate-y-[65vh] translate-y-[-90vh] logo">
             <svg
