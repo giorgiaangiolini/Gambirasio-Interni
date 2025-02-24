@@ -104,7 +104,7 @@ function Header({ altLangs, settings }) {
 
           <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
 
-          <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div>
+          <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300 text-grey" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div>
           
           {/* <Link target="_blank" rel="noopener noreferrer" href={settings.data.link_codice_form} className="flex justify-end cursor-pointer hover_opacity transition-all duration-300">{settings.data.bottone_contatti}</Link> */}
 
