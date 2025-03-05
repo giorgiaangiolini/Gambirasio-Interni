@@ -137,7 +137,6 @@ export default function Collezioni({ collezioni, settings, locales }) {
               })}
           </div>
           </FadeStagger>
-
         </div>
       </div>
     </Layout>
