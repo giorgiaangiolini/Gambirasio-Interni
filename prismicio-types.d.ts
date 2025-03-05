@@ -4,21 +4,6 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-/**
- * Item in *Contatti → Social*
- */
-export interface ContattiDocumentDataSocialItem {
-  /**
-   * Link field in *Contatti → Social*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contatti.social[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
 type ContattiDocumentDataSlicesSlice = never;
 
 /**
@@ -37,15 +22,15 @@ interface ContattiDocumentData {
   testo_contatti: prismic.RichTextField;
 
   /**
-   * Social field in *Contatti*
+   * Testo Storia field in *Contatti*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contatti.social[]
+   * - **API ID Path**: contatti.testo_storia
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  social: prismic.GroupField<Simplify<ContattiDocumentDataSocialItem>>;
+  testo_storia: prismic.RichTextField;
 
   /**
    * Video field in *Contatti*
@@ -858,13 +843,101 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type StoriaDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Storia documents
+ */
+interface StoriaDocumentData {
+  /**
+   * Testo field in *Storia*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: storia.testo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+
+  /**
+   * Immagine field in *Storia*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: storia.immagine
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Storia*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: storia.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<StoriaDocumentDataSlicesSlice> /**
+   * Meta Title field in *Storia*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: storia.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Storia*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: storia.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Storia*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: storia.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Storia document from Prismic
+ *
+ * - **API ID**: `storia`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type StoriaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<StoriaDocumentData>,
+    "storia",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ContattiDocument
   | HomepageDocument
   | OggettoDocument
   | ProgettoDocument
   | ServiziDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | StoriaDocument;
 
 /**
  * Item in *Slideshow → Default → Primary → Slideshow*
@@ -971,7 +1044,6 @@ declare module "@prismicio/client" {
     export type {
       ContattiDocument,
       ContattiDocumentData,
-      ContattiDocumentDataSocialItem,
       ContattiDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
@@ -991,6 +1063,9 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataHeaderItem,
+      StoriaDocument,
+      StoriaDocumentData,
+      StoriaDocumentDataSlicesSlice,
       AllDocumentTypes,
       SlideshowSlice,
       SlideshowSliceDefaultPrimarySlideshowItem,

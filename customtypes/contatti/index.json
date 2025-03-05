@@ -15,24 +15,13 @@
           "multi": "paragraph,em,strong,hyperlink"
         }
       },
-      "social": {
-        "type": "Group",
+      "testo_storia": {
+        "type": "StructuredText",
         "config": {
-          "label": "Social",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null,
-                "allowTargetBlank": true,
-                "allowText": true,
-                "repeat": false
-              }
-            }
-          }
+          "label": "Testo Storia",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
         }
       },
       "video": {

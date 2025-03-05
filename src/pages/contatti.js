@@ -35,13 +35,19 @@ export default function Contatti({contatti, settings}) {
       altLangs={contatti.alternate_languages}
      >
       <div className="flex md:flex-row flex-col-reverse md:h-screen h-auto md:pt-8 pt-6 pb-2 md:gap-4 gap-2 md:px-4 px-1">
-        <div className="md:w-1/2 w-full flex items-center">
+        <div className="md:w-1/2 w-full flex md:flex-row flex-col md:items-center">
           <FadeInAnimation>
-          <div className="pr-2 text-grey max-w-[500px]">
+          <div className="pr-2 text-grey md:max-w-[500px] max-w-full">
             <PrismicRichText field={data.testo_contatti} />
           </div>
+
           </FadeInAnimation>
+          <div className="md:px-4 px-0 pb-2 md:absolute relative bottom-0 left-0 md:w-1/2 w-full text-grey md:mt-0 mt-3">
+           <PrismicRichText field={data.testo_storia} />
+          </div>
+
         </div>
+
 
         <div className="md:w-1/2 w-full flex justify-end relative">
           {data.video ? (
