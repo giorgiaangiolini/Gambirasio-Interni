@@ -32,7 +32,8 @@ module.exports = {
       grey: '#353535',
       black: 'black',
       white: '#FFFEF7',
-      transparent: "transparent"
+      transparent: "transparent",
+      blue: '#020728',
     },
     screens: {
       'sm': '568px',

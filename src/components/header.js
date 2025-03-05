@@ -76,12 +76,12 @@ function Header({ altLangs, settings }) {
   return (
     <>
       <header
-        className={`fixed bg-white transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-primary `}
+        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary`}
       >
         <div className="flex items-center justify-between gap-2">
           <div className="lg:w-1/3 md:w-auto">
             <Link href="/">
-              <h1 className="font-secondary uppercase text-grey md:text-[26px] text-[25px] leading-none">
+              <h1 className="font-secondary uppercase text-blue md:text-[24px] text-[25px] leading-none">
                 Gambirasio Interni
               </h1>
             </Link>
@@ -93,7 +93,7 @@ function Header({ altLangs, settings }) {
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={` header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-grey  font-primary leading-none relative group`}
+                  className={` header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-blue  font-secondary leading-none relative group`}
                 >
                   {item.text}
                   {/* <div className={`header_linka bsolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? 'active_link' : ''}`}></div> */}
@@ -104,9 +104,9 @@ function Header({ altLangs, settings }) {
 
           <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
 
-          <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300 text-grey" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div>
+          {/* <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300 text-blue" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div> */}
           
-          {/* <Link target="_blank" rel="noopener noreferrer" href={settings.data.link_codice_form} className="flex justify-end cursor-pointer hover_opacity transition-all duration-300">{settings.data.bottone_contatti}</Link> */}
+          <Link target="_blank" rel="noopener noreferrer" href={settings.data.link_codice_form} className="flex justify-end cursor-pointer hover_opacity transition-all duration-300">{settings.data.bottone_contatti}</Link>
 
             {altLangs[0] ? (
               <div className="flex justify-end">
