@@ -631,6 +631,21 @@ export interface SettingsDocumentDataHeaderItem {
 }
 
 /**
+ * Item in *Settings → Lista link*
+ */
+export interface SettingsDocumentDataListaLinkItem {
+  /**
+   * Link field in *Settings → Lista link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.lista_link[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -824,7 +839,27 @@ interface SettingsDocumentData {
    * - **Tab**: FORM CONTATTI
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  bottone_invia: prismic.KeyTextField;
+  bottone_invia: prismic.KeyTextField /**
+   * Indirizzo field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.indirizzo
+   * - **Tab**: FOOTER
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */;
+  indirizzo: prismic.RichTextField;
+
+  /**
+   * Lista link field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.lista_link[]
+   * - **Tab**: FOOTER
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  lista_link: prismic.GroupField<Simplify<SettingsDocumentDataListaLinkItem>>;
 }
 
 /**
@@ -1063,6 +1098,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataHeaderItem,
+      SettingsDocumentDataListaLinkItem,
       StoriaDocument,
       StoriaDocumentData,
       StoriaDocumentDataSlicesSlice,

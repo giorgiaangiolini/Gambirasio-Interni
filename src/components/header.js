@@ -70,18 +70,15 @@ function Header({ altLangs, settings }) {
     }
   };
 
-
-  console.log(settings.data, "ciao")
-
   return (
     <>
       <header
-        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-4 font-secondary`}
+        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-6 font-secondary h-5 flex items-center `}
       >
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center justify-between gap-2 w-full">
           <div className="lg:w-1/3 md:w-auto">
             <Link href="/">
-              <h1 className="font-secondary uppercase text-blue md:text-[24px] text-[25px] leading-none">
+              <h1 className="font-secondary uppercase text-blue md:text-[22px] text-[25px] leading-none">
                 Gambirasio Interni
               </h1>
             </Link>
@@ -103,10 +100,14 @@ function Header({ altLangs, settings }) {
           </div>
 
           <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
-
-          {/* <div className="flex justify-end cursor-pointer hover_opacity transition-all duration-300 text-blue" onClick={() => setModalOpen(true)}>{settings.data.bottone_contatti}</div> */}
-          
-          <Link target="_blank" rel="noopener noreferrer" href={settings.data.link_codice_form} className="flex justify-end cursor-pointer hover_opacity transition-all duration-300">{settings.data.bottone_contatti}</Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={settings.data.link_codice_form}
+              className="flex justify-end cursor-pointer hover_opacity transition-all duration-300"
+            >
+              {settings.data.bottone_contatti}
+            </Link>
 
             {altLangs[0] ? (
               <div className="flex justify-end">
@@ -120,14 +121,16 @@ function Header({ altLangs, settings }) {
             onClick={() => toggleOpen()}
             className="md:hidden flex items-center justify-center text-grey"
           >
-
             <button className="group">
               <div className="grid justify-items-center relative h-[10px] w-3">
-                <span className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0  ${mobileOpen ? "rotate-45 translate-y-[4.5px]" : "translate-y-0"}`}></span>
-                <span className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0 ${mobileOpen ? "-rotate-45 translate-y-[4.5px]" : "translate-y-[9px]"}`}></span>
+                <span
+                  className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0  ${mobileOpen ? "rotate-45 translate-y-[4.5px]" : "translate-y-0"}`}
+                ></span>
+                <span
+                  className={`h-[1px] w-3 rounded-full bg-grey transition absolute left-0 ${mobileOpen ? "-rotate-45 translate-y-[4.5px]" : "translate-y-[9px]"}`}
+                ></span>
               </div>
             </button>
-
 
             {/* <svg
               width="24"
@@ -139,7 +142,6 @@ function Header({ altLangs, settings }) {
               <line y1="8.5" x2="24" y2="8.5" stroke="#8993A0" />
               <line y1="0.5" x2="24" y2="0.5" stroke="#8993A0" />
             </svg> */}
-            
           </div>
         </div>
       </header>
@@ -156,10 +158,7 @@ function Header({ altLangs, settings }) {
             {settings.data.header[0].link.map((item) => {
               return (
                 <li>
-                  <PrismicLink
-                    className="link_col opacity-100"
-                    field={item}
-                  >
+                  <PrismicLink className="link_col opacity-100" field={item}>
                     {item.text}
                   </PrismicLink>
                 </li>
@@ -169,33 +168,36 @@ function Header({ altLangs, settings }) {
         </div>
       </div>
 
-      <div 
+      <div
         className={`fixed inset-0 z-[999] bg-white/70 transition-opacity duration-300 ease-in-out p-2 flex items-center justify-center  ${
-          modalOpen ? 'opacity-100 visible' : 'opacity-0 pointer-events-none'
+          modalOpen ? "opacity-100 visible" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="h-[90vh] max-w-full w-[700px] bg-white flex items-center justify-center border border-grey relative overflow-scroll">
-        <button 
-          onClick={() => setModalOpen(false)}
-          className="absolute top-1 right-1 p-1"
-        >
-          <div className="grid justify-items-center relative h-[10px] w-2 hover:opacity-50 transition-all duration-300">
-            <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 rotate-45 translate-y-[4.5px]"></span>
-            <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 -rotate-45 translate-y-[4.5px]"></span>
-          </div>
-        </button>
+          <button
+            onClick={() => setModalOpen(false)}
+            className="absolute top-1 right-1 p-1"
+          >
+            <div className="grid justify-items-center relative h-[10px] w-2 hover:opacity-50 transition-all duration-300">
+              <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 rotate-45 translate-y-[4.5px]"></span>
+              <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 -rotate-45 translate-y-[4.5px]"></span>
+            </div>
+          </button>
           <div className="text-center">
             <div className="text-grey text-base">
-            
-                {/* <BrevoForm data={settings.data} /> */}
-                <iframe width="640" height="705" src={settings.data.link_codice_form} frameborder="0" scrolling="auto" allowfullscreen>
-                </iframe>
+              {/* <BrevoForm data={settings.data} /> */}
+              <iframe
+                width="640"
+                height="705"
+                src={settings.data.link_codice_form}
+                frameborder="0"
+                scrolling="auto"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
       </div>
-
-
     </>
   );
 }

@@ -19,6 +19,8 @@ import SwiperCore from "swiper";
 import { PrismicNextImage } from "@prismicio/next";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import "swiper/css/effect-fade";
+import { EffectFade } from "swiper";
 
 SwiperCore.use([Navigation, Autoplay, A11y]);
 
@@ -48,13 +50,12 @@ const Slideshow = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="home_slideshow relative"
     >
-
-      <div ref={slideRef} className="h-screen">
+      <div ref={slideRef} className="h-screen p-5">
         <Swiper
-          direction="vertical"
-          modules={[Mousewheel, A11y, Keyboard]}
+          modules={[Mousewheel, A11y, Keyboard, EffectFade]}
           spaceBetween={0}
           slidesPerView={1}
+          effect="fade"
           keyboard={{
             enabled: true,
           }}
@@ -112,6 +113,7 @@ const Slideshow = ({ slice }) => {
           })}
         </Swiper>
       </div>
+
     </section>
   );
 };

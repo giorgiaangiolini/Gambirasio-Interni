@@ -7,9 +7,12 @@ import { components } from "@/slices";
 import Slideshow from "@/components/slideshow";
 import FadeInAnimation from '@/components/Animations/FadeInAnimation';
 import TextAnimationHeading from "@/components/Animations/HeadingAnimation";
-
+import Link from "next/link";
+import { PrismicLink } from "@prismicio/react";
 export default function Home({ home, settings, locales }) {
   const { data } = home;
+
+  console.log(settings, "ciao")
 
   return (
     <Layout settings={settings} meta={data} altLangs={home.alternate_languages}>
@@ -18,20 +21,25 @@ export default function Home({ home, settings, locales }) {
         context={settings}
         components={components}
       />
-      <div className="flex md:items-center items-end justify-between md:px-4 px-1 md:absolute fixed md:top-0 top-auto bottom-2 left-0 w-full z-10 bg-transparent md:h-screen h-auto pointer-events-none">
-        {/* <FadeIn> */}
-        {/* <div className="text-grey max-w-md md:text-base text-sm">
-          <TextAnimationHeading>
-            {data.testo[0].text}
-          </TextAnimationHeading>
-        </div> */}
-        {/* </FadeIn> */}
+     
+    <div className="h-5 absolute bottom-0 left-0 w-full bg-red-500 px-6 flex items-center justify-between font-secondary">
+      <ul className="flex gap-2">
+        {settings.data.lista_link.map((item, i) => {
+          return (
+            <li key={i}>
+              <PrismicLink field={item.link} className="text-blue">
+                {item.link.text}
+              </PrismicLink>
+            </li>
+          )
+        })}
+      </ul>
+
+      <div className="">
+      Via Monte S. Michele 1 - 24121, Bergamo - Tel: 035 247178
       </div>
-      <div className="absolute h-screen w-screen top-0 left-0 flex items-center justify-center z-10 pointer-events-none">
-        <div  className="md:w-[220px] w-[120px] rotate_animation">
-          
-        </div>
-      </div>
+    </div>
+
     </Layout>
   );
 }

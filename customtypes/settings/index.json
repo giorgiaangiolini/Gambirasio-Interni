@@ -155,6 +155,37 @@
           "placeholder": ""
         }
       }
+    },
+    "FOOTER": {
+      "indirizzo": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Indirizzo",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink,em"
+        }
+      },
+      "lista_link": {
+        "type": "Group",
+        "config": {
+          "label": "Lista link",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
