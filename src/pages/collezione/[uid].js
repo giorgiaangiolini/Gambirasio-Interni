@@ -19,14 +19,12 @@ export default function Oggetto({ page, settings }) {
         <div className="md:w-[70%] w-full">
           <FadeStagger>
             <div className="flex flex-col gap-1">
-              {data.immagini.map((img, i) => (
+            {data.immagini.map((img, i) => (
                 <div
-                  key={i}
-                  className={`w-full flex justify-end md:h-[calc(100vh-90px)]`}
-                >
+                key={i} className="w-full flex justify-end md:h-[calc(100vh-100px)]">
                   <PrismicNextImage
                     field={img.immagine}
-                    className="md:w-auto w-full md:h-full h-auto object-cover"
+                    className="md:w-auto h-full object-contain"
                     alt={img.immagine?.alt}
                   />
                 </div>
