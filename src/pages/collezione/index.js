@@ -52,8 +52,8 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
 
   return (
     <Layout settings={settings} meta={data} altLangs={settings.alternate_languages}>
-      <div ref={contentRef} className="flex md:flex-row flex-col min-h-full md:pt-5 pt-5 pb-2 md:px-4 px-1">
-        <div className="md:w-[30%] w-full md:block hidden">
+      <div ref={contentRef} className="flex md:flex-row flex-col min-h-full md:pt-5 pt-5  md:px-4 px-1">
+        <div className="md:w-[30%] w-full md:block hidden md:min-h-[calc(100vh-100px)]">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
             <div className="flex md:flex-col md:gap-1 gap-3  relative md:text-base text-xs">
               <PrismicRichText field={collezione.data.testo} />

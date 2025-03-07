@@ -27,19 +27,17 @@ export default function Contatti({ contatti, settings }) {
     }
   }, [isMuted]);
 
-  console.log(settings, "ciao")
-
   return (
     <Layout
       settings={settings}
       meta={data}
       altLangs={contatti.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-5 px-1 md:pb-2 pb-6">
+      <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-5 px-1 md:pb-0 pb-6">
 
         <div className="md:w-[30%] w-full flex md:flex-row flex-col md:items-center md:py-5">
 
-          <div className="flex md:hidden justify-between gap-1 mb-3">
+          <div className="flex md:hidden justify-between gap-1 mb-4">
           {settings.data.lista_link.map((item, i) => {
           return (
             <div key={i}>
@@ -66,7 +64,7 @@ export default function Contatti({ contatti, settings }) {
         </div>
 
 
-        <div className="md:w-[70%] w-full flex justify-end relative md:h-[calc(100vh-100px)]">
+        <div className="md:w-[70%] w-full flex justify-end relative md:h-[calc(100vh-100px)] bg-grey">
           {data.video ? (
             <>
               <video

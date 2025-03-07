@@ -15,9 +15,9 @@ export default function Progetti({ progetti, settings, progettazione }) {
       meta={data}
       altLangs={settings.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col min-h-full md:pt-6 pt-6 pb-4 md:px-4 px-1">
+      <div className="flex md:flex-row flex-col min-h-full md:pt-5 pt-6 md:px-4 px-1 md:pb-0 pb-4">
 
-      <div className="md:w-[30%] w-full md:block hidden">
+      <div className="md:w-[30%] w-full md:block hidden md:min-h-[calc(100vh-100px)]">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
             <PrismicRichText field={progettazione.data.testo} />
           </div>
@@ -34,9 +34,11 @@ export default function Progetti({ progetti, settings, progettazione }) {
                         <PrismicNextImage
                           field={progetto.data.cover}
                           className="object-cover w-full h-full"
+                          alt={progetto.data.cover?.alt}
                         />
                         <PrismicNextImage
                           field={progetto.data.cover_02}
+                          alt={progetto.data.cover_02?.alt}
                           className="absolute inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 md:block hidden"
                         />
                       </div>

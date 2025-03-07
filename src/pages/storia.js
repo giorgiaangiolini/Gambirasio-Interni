@@ -29,6 +29,7 @@ export default function Storia({storia, settings, locales}) {
           <PrismicNextImage 
             field={data.immagine}
             className="w-full h-full object-cover"
+            alt={data.immagine?.alt}
           />
         </div>
       </div>

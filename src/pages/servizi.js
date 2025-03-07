@@ -22,7 +22,7 @@ export default function Servizi({ servizi, settings }) {
       meta={servizi.data}
       altLangs={servizi.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-5 px-1 md:gap-4 gap-1 md:pb-2 pb-4 justify-end md:justify-start">
+      <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-5 px-1 md:gap-4 gap-1 md:pb-0 pb-4 justify-end md:justify-start">
 
         <div className="md:w-[30%] h-full w-full relative">
             <div className="flex flex-col h-full justify-center gap-0 relative md:min-h-[calc(100vh-100px)]">
