@@ -50,7 +50,7 @@ const Slideshow = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="home_slideshow relative"
     >
-      <div ref={slideRef} className="h-screen p-5">
+      <div ref={slideRef} className="h-[calc(100vh-50px)] pt-5 px-4">
         <Swiper
           modules={[Mousewheel, A11y, Keyboard, EffectFade]}
           spaceBetween={0}

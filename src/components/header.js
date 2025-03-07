@@ -73,7 +73,7 @@ function Header({ altLangs, settings }) {
   return (
     <>
       <header
-        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-6 font-secondary h-5 flex items-center `}
+        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-5 font-secondary h-5 flex items-center `}
       >
         <div className="flex items-center justify-between gap-2 w-full">
           <div className="lg:w-1/3 md:w-auto">

@@ -5,8 +5,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 import FadeStagger from "@/components/Animations/FadeStagger";
 import { getLocales } from "../../../helpers/getLocales";
-
-export default function Progetti({ progetti, settings }) {
+import { PrismicRichText } from "@prismicio/react";
+export default function Progetti({ progetti, settings, progettazione }) {
   const { data } = progetti;
 
   return (
@@ -19,7 +19,7 @@ export default function Progetti({ progetti, settings }) {
 
       <div className="md:w-[30%] w-full">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
-            
+            <PrismicRichText field={progettazione.data.testo} />
           </div>
         </div>
 
@@ -68,6 +68,8 @@ export async function getStaticProps({ params, locale, previewData }) {
     });
 
     const settings = await client.getSingle("settings", { lang: locale });
+    const progettazione = await client.getSingle("progettazione", { lang: locale });
+
 
     if (!progetti || !settings) {
       return { notFound: true };
@@ -77,6 +79,7 @@ export async function getStaticProps({ params, locale, previewData }) {
     return {
       props: {
         progetti,
+        progettazione,
         settings,
         // locales,
       },

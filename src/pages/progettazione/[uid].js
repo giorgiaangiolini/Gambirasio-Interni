@@ -15,7 +15,7 @@ export default function Progetto({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-        <div className="flex md:flex-row flex-col min-h-screen md:pt-8 pt-6 pb-2 md:px-4 px-1">
+        <div className="flex md:flex-row flex-col min-h-screen md:pt-5 pt-5 pb-2 md:px-4 px-1">
           <div className="md:w-[30%] w-full">
             <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey md:text-base text-xs md:mb-0 mb-2">
             <FadeInAnimation>

@@ -24,7 +24,7 @@ const Layout = ({ children, altLangs, menu, meta, settings }) => {
           <SmoothScrolling>
             
    
-           <div className={`page_container min-h-screen bg-white`}>
+           <div className={`page_container min-h-[calc(100vh-50px)] bg-white`}>
             {children}
            </div>
 

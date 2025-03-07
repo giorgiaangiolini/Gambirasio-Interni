@@ -7,9 +7,9 @@ import { PrismicNextImage } from "@prismicio/next";
 import FadeStagger from "@/components/Animations/FadeStagger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { PrismicRichText } from "@prismicio/react";
 
-
-export default function Collezioni({ collezioni, settings, locales }) {
+export default function Collezioni({ collezioni, settings, locales, collezione }) {
   const { data } = settings;
 
   const [selectedTag, setSelectedTag] = useState(null);
@@ -52,12 +52,13 @@ export default function Collezioni({ collezioni, settings, locales }) {
 
   return (
     <Layout settings={settings} meta={data} altLangs={settings.alternate_languages}>
-      <div ref={contentRef} className="flex md:flex-row flex-col min-h-screen md:pt-8 pt-6 pb-2 md:px-4 px-1">
+      <div ref={contentRef} className="flex md:flex-row flex-col min-h-screen md:pt-5 pt-5 pb-2 md:px-4 px-1">
         <div className="md:w-[30%] w-full">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
-            <div className="flex md:flex-col md:gap-1 gap-3 uppercase relative md:text-base text-xs">
+            <div className="flex md:flex-col md:gap-1 gap-3  relative md:text-base text-xs">
+              <PrismicRichText field={collezione.data.testo} />
               {/* Indicatore SVG animato */}
-              <div
+              {/* <div
                 className="absolute left-[0px] transition-transform duration-300 ease-in-out top-[7px] md:block hidden"
                 style={{
                   transform: `translateY(${selectedTag === null ? 0 : (uniqueTags.indexOf(selectedTag) + 1) * 34}px)`,
@@ -90,7 +91,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
                 >
                   {tag}
                 </button>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -128,7 +129,7 @@ export default function Collezioni({ collezioni, settings, locales }) {
                           />
                         </div>
                       </div>
-                      <div className="text-grey leading-none py-1 text-s md:block hidden">
+                      <div className="text-grey leading-none py-1 text-sm md:block hidden">
                         <p>{item.data.didascalia}</p>
                       </div>
                     </div>
@@ -155,6 +156,7 @@ export async function getStaticProps({ params, locale, previewData }) {
       lang: locale });
 
     const settings = await client.getSingle("settings", { lang: locale });
+    const collezione = await client.getSingle("collezione", { lang: locale });
 
     // const locales = await getLocales(collezioni, client)
 
@@ -166,6 +168,7 @@ export async function getStaticProps({ params, locale, previewData }) {
       props: {
         collezioni,
         settings,
+        collezione,
         // locales,
       },
     };
