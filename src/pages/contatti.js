@@ -6,6 +6,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import TextAnimation from "@/components/Animations/TextAnimation";
 import FadeInAnimation from "@/components/Animations/FadeInAnimation";
+import { PrismicLink } from "@prismicio/react";
 
 export default function Contatti({ contatti, settings }) {
   const { data } = contatti;
@@ -26,18 +27,36 @@ export default function Contatti({ contatti, settings }) {
     }
   }, [isMuted]);
 
+  console.log(settings, "ciao")
+
   return (
     <Layout
       settings={settings}
       meta={data}
       altLangs={contatti.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col-reverse md:min-h-screen h-auto md:pt-5 pt-5 pb-2 md:gap-4 gap-2 md:px-4 px-1">
+      <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-5 px-1 md:pb-2 pb-6">
 
-        <div className="md:w-[30%] w-full flex md:flex-row flex-col md:items-center py-5">
+        <div className="md:w-[30%] w-full flex md:flex-row flex-col md:items-center md:py-5">
+
+          <div className="flex md:hidden justify-between gap-1 mb-3">
+          {settings.data.lista_link.map((item, i) => {
+          return (
+            <div key={i}>
+              <PrismicLink
+                field={item.link}
+                className="font-secondary text-grey text-base"
+              >
+                {item.link.text}
+              </PrismicLink>
+            </div>
+          );
+        })}
+          </div>
+
           <FadeInAnimation>
             <div className="pr-2 text-grey  max-w-full">
-              <div className="">
+              <div className="mb-4">
                 <PrismicRichText field={data.testo_storia} />
               </div>
 
@@ -47,7 +66,7 @@ export default function Contatti({ contatti, settings }) {
         </div>
 
 
-        <div className="md:w-[70%] w-full flex justify-end relative h-[calc(100vh-100px)]">
+        <div className="md:w-[70%] w-full flex justify-end relative md:h-[calc(100vh-100px)]">
           {data.video ? (
             <>
               <video
@@ -61,7 +80,7 @@ export default function Contatti({ contatti, settings }) {
               >
                 <source src={data.video?.url} type="video/mp4" />
               </video>
-              <button
+              {/* <button
                 onClick={handleToggleAudio}
                 className="absolute md:bottom-2 bottom-1 md:right-2 right-1 z-10 pointer-events-auto p-[5px] rounded-full transition-all  bg-white md:hover:scale-[1.05] transform duration-300"
               >
@@ -96,7 +115,7 @@ export default function Contatti({ contatti, settings }) {
                     />
                   </svg>
                 )}
-              </button>
+              </button> */}
             </>
           ) : data.immagine ? (
             <PrismicNextImage

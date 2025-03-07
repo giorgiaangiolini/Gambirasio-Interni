@@ -22,46 +22,46 @@ export default function Servizi({ servizi, settings }) {
       meta={servizi.data}
       altLangs={servizi.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col-reverse min-h-screen md:pt-5 pt-5 pb-2 md:px-4 px-1 gap-4 justify-end md:justify-start">
+      <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-5 px-1 md:gap-4 gap-1 md:pb-2 pb-4 justify-end md:justify-start">
 
         <div className="md:w-[30%] h-full w-full relative">
-          <div className=" pr-8 text-grey ">
-              <div className="flex flex-col justify-center gap-1  relative ">
+            <div className="flex flex-col h-full justify-center gap-0 relative md:min-h-[calc(100vh-100px)]">
 
-                {data.servizi.map((item, index) => (
-                  <div key={index} className="overflow-hidden">
-                    <button
-                      onClick={() => {
-                        setSelectedIndex(index);
-                        setOpenAccordion(openAccordion === index ? null : index);
+              {data.servizi.map((item, index) => (
+                <div key={index} className="overflow-hidden">
+                  <button
+                    onClick={() => {
+                      setSelectedIndex(index);
+                      setOpenAccordion(openAccordion === index ? null : index);
+                    }}
+                    className={`text-left hover:opacity-70  uppercase md:text-base text-base font-secondary mb-1 ${
+                      selectedIndex === index ? "" : ""
+                    }`}
+                  >
+                    {item.servizio}
+                  </button>
+                  <div 
+                    className={` origin-top transition-opacity duration-[1s] ease-in-out ${
+                      openAccordion === index ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="pb-1">
+                    <PrismicRichText
+                      field={item.descrizione}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <p className="md:text-base ">{children}</p>
+                        ),
                       }}
-                      className={`text-left hover:opacity-70 transition-all duration-300 ease-in-out uppercase md:text-base text-xs ${
-                        selectedIndex === index ? "md:translate-x-[25px] translate-x-[20px]" : ""
-                      }`}
-                    >
-                      {item.servizio}
-                    </button>
-                    <div 
-                      className={`transition-all duration-300 ease-in-out origin-top ${
-                        openAccordion === index ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <PrismicRichText
-                        field={item.descrizione}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <p className="text-[14px]">{children}</p>
-                          ),
-                        }}
-                      />
+                    />
                     </div>
                   </div>
-                ))}
-              </div>
-          </div>
+                </div>
+              ))}
+            </div>
         </div>
 
-        <div className="md:w-[70%] w-full h-[calc(100vh-100px)]">
+        <div className="md:w-[70%] w-full md:h-[calc(100vh-100px)] h-auto">
           <FadeInAnimation className={"h-full"}>
             <SlideshowServizi index={selectedIndex} content={data.servizi} />
           </FadeInAnimation>

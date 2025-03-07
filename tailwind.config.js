@@ -46,7 +46,7 @@ module.exports = {
       secondary: "var(--charlotte-font)"
     },
     fontSize: {
-      'base': '16px',  
+      'base': '14px',  
       'm': '18px',
       'sm': '14px',
       'xs': '12px',

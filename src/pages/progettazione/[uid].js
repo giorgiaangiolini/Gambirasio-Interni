@@ -15,9 +15,9 @@ export default function Progetto({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-        <div className="flex md:flex-row flex-col min-h-screen md:pt-5 pt-5 pb-2 md:px-4 px-1">
+        <div className="flex md:flex-row flex-col min-h-screen md:pt-5 pt-6 md:pb-2 pb-4 md:px-4 px-1">
           <div className="md:w-[30%] w-full">
-            <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey md:text-base text-xs md:mb-0 mb-2">
+            <div className="sticky md:top-[50vh] md:-translate-y-1/2 md:pr-8 text-grey md:text-base text-xs md:mb-0 mb-1">
             <FadeInAnimation>
               {data.descrizione_progetto}
               </FadeInAnimation>
@@ -30,10 +30,10 @@ export default function Progetto({ page, settings }) {
             <div className="flex flex-col gap-1">
               {data.immagini.map((img, i) => (
                 <div
-                key={i} className="w-full flex justify-end h-[calc(100vh-90px)]">
+                key={i} className="w-full flex justify-end md:h-[calc(100vh-90px)] h-auto">
                   <PrismicNextImage
                     field={img.immagine}
-                    className="w-auto h-full object-cover"
+                    className="md:w-auto w-full md:h-full h-auto object-cover"
                     alt={img.immagine?.alt}
                   />
                 </div>

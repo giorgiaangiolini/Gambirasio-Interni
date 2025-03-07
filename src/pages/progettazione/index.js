@@ -15,9 +15,9 @@ export default function Progetti({ progetti, settings, progettazione }) {
       meta={data}
       altLangs={settings.alternate_languages}
     >
-      <div className="flex md:flex-row flex-col min-h-screen md:pt-6 pt-6 pb-2 md:px-4 px-1">
+      <div className="flex md:flex-row flex-col min-h-full md:pt-6 pt-6 pb-4 md:px-4 px-1">
 
-      <div className="md:w-[30%] w-full">
+      <div className="md:w-[30%] w-full md:block hidden">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
             <PrismicRichText field={progettazione.data.testo} />
           </div>
@@ -27,7 +27,7 @@ export default function Progetti({ progetti, settings, progettazione }) {
           <FadeStagger>
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-1 gap-2 ">
               {progetti.map((progetto, i) => (
-                <Link href={`/progetti/${progetto.uid}`}>
+                <Link href={`/progettazione/${progetto.uid}`}>
                   <div key={i} className="w-full">
                     <div className="relative w-full  group overflow-hidden aspect-4-5">
                       <div className="absolute w-full h-full top-0 left-0">

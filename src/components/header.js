@@ -73,12 +73,12 @@ function Header({ altLangs, settings }) {
   return (
     <>
       <header
-        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 py-1 md:px-5 font-secondary h-5 flex items-center `}
+        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 md:py-1 pb-2 md:px-5 font-secondary h-5 flex items-center md:pt-1 pt-3`}
       >
         <div className="flex items-center justify-between gap-2 w-full">
           <div className="lg:w-1/3 md:w-auto">
             <Link href="/">
-              <h1 className="font-secondary uppercase text-blue md:text-[22px] text-[25px] leading-none">
+              <h1 className="font-secondary uppercase text-blue md:text-[22px] text-[23px] leading-none tracking-wider">
                 Gambirasio Interni
               </h1>
             </Link>
@@ -90,10 +90,9 @@ function Header({ altLangs, settings }) {
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={` header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-blue  font-secondary leading-none relative group`}
+                  className={`text-sm header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-blue  font-secondary leading-none relative group`}
                 >
                   {item.text}
-                  {/* <div className={`header_linka bsolute left-0 bottom-[-2px] w-0 h-[1px] bg-grey transition-all duration-300 group-hover:w-full ${router.pathname.includes(item.text.toLowerCase()) ? 'active_link' : ''}`}></div> */}
                 </PrismicLink>
               );
             })}
@@ -104,7 +103,7 @@ function Header({ altLangs, settings }) {
               target="_blank"
               rel="noopener noreferrer"
               href={settings.data.link_codice_form}
-              className="flex justify-end cursor-pointer hover_opacity transition-all duration-300"
+              className="text-sm flex justify-end cursor-pointer hover:opacity-50 transition-all duration-300"
             >
               {settings.data.bottone_contatti}
             </Link>
@@ -153,8 +152,8 @@ function Header({ altLangs, settings }) {
           " fixed z-[998] translate-x-[-100vw] top-0 h-[100vh] w-[100vw] bg-white px-[15px] py-2  ease-in-out text-black"
         }
       >
-        <div className="justify-center text-center text-[30px] h-full font-secondary flex flex-col items-center gap-1 text-grey">
-          <ul className="gap-4">
+        <div className="justify-center text-center text-[23px] h-full font-secondary flex flex-col items-center gap-4 text-grey">
+          <ul className="gap-1 flex flex-col">
             {settings.data.header[0].link.map((item) => {
               return (
                 <li>

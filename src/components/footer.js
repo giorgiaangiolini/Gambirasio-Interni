@@ -1,30 +1,48 @@
-import React from 'react'
-import { PrismicLink } from '@prismicio/react';
+import React from "react";
+import { PrismicLink } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
+import Link from "next/link";
+const Footer = ({ settings }) => {
+  const { data } = settings;
 
-const Footer = ({settings}) => {
-
-  const {data} = settings;
+  console.log(data, "ciao");
 
   return (
-  
-    <footer className="h-5 left-0 w-full bg-red-500 px-5 flex items-center justify-between font-secondary">
-    <ul className="flex gap-2">
-      {settings.data.lista_link.map((item, i) => {
-        return (
-          <li key={i}>
-            <PrismicLink field={item.link} className="text-blue">
-              {item.link.text}
-            </PrismicLink>
-          </li>
-        )
-      })}
-    </ul>
+    <footer className="md:h-5 h-4 left-0 w-full bg-red-500 md:px-5 px-1 flex items-center justify-between font-secondary md:static fixed bottom-0 bg-white">
+      <Link
+        target="_blank"
+        rel="noopener noreferrer"
+        href={settings.data.link_codice_form}
+        className="text-sm md:hidden flex justify-end cursor-pointer hover:opacity-50 transition-all duration-300"
+      >
+        {settings.data.bottone_contatti}
+      </Link>
 
-    <div className="">
-    Via Monte S. Michele 1 - 24121, Bergamo - Tel: 035 247178
-    </div>
-  </footer>
-  )
-}
+      <ul className="md:flex hidden gap-2 text-sm">
+        {settings.data.lista_link.map((item, i) => {
+          return (
+            <li key={i}>
+              <PrismicLink
+                field={item.link}
+                className="text-blue hover:opacity-50 transition-all duration-300"
+              >
+                {item.link.text}
+              </PrismicLink>
+            </li>
+          );
+        })}
+      </ul>
 
-export default Footer
+      <div className="text-sm md:block hidden">
+        <PrismicRichText
+          field={data.indirizzo}
+          components={{
+            paragraph: ({ children }) => <p className="text-sm">{children}</p>,
+          }}
+        />
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
