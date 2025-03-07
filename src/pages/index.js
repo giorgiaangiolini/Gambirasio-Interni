@@ -12,7 +12,6 @@ import { PrismicLink } from "@prismicio/react";
 export default function Home({ home, settings, locales }) {
   const { data } = home;
 
-  console.log(settings, "ciao")
 
   return (
     <Layout settings={settings} meta={data} altLangs={home.alternate_languages}>
