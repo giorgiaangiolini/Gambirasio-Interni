@@ -51,7 +51,7 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
   }, [selectedTag]);
 
   return (
-    <Layout settings={settings} meta={data} altLangs={settings.alternate_languages}>
+    <Layout settings={settings} meta={data} altLangs={locales}>
       <div ref={contentRef} className="flex md:flex-row flex-col min-h-full md:pt-5 pt-5  md:px-4 px-1">
         <div className="md:w-[30%] w-full md:block hidden md:min-h-[calc(100vh-100px)]">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
@@ -159,18 +159,19 @@ export async function getStaticProps({ params, locale, previewData }) {
     const settings = await client.getSingle("settings", { lang: locale });
     const collezione = await client.getSingle("collezione", { lang: locale });
 
-    // const locales = await getLocales(collezioni, client)
 
     if (!collezioni || !settings) {
       return { notFound: true };
     }
+
+    const locales = await getLocales(collezione, client)
 
     return {
       props: {
         collezioni,
         settings,
         collezione,
-        // locales,
+        locales,
       },
     };
   } catch (e) {

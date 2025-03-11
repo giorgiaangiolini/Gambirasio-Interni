@@ -6,14 +6,14 @@ import Link from "next/link";
 import FadeStagger from "@/components/Animations/FadeStagger";
 import { getLocales } from "../../../helpers/getLocales";
 import { PrismicRichText } from "@prismicio/react";
-export default function Progetti({ progetti, settings, progettazione }) {
+export default function Progetti({ progetti, settings, progettazione, locales }) {
   const { data } = progetti;
 
   return (
     <Layout
       settings={settings}
       meta={data}
-      altLangs={settings.alternate_languages}
+      altLangs={locales}
     >
       <div className="flex md:flex-row flex-col min-h-full md:pt-5 pt-6 md:px-4 px-1 md:pb-0 pb-4">
 
@@ -76,14 +76,15 @@ export async function getStaticProps({ params, locale, previewData }) {
     if (!progetti || !settings) {
       return { notFound: true };
     }
-    // const locales = await getLocales(progetti, client)
+
+    const locales = await getLocales(progettazione, client)
 
     return {
       props: {
         progetti,
         progettazione,
         settings,
-        // locales,
+        locales,
       },
     };
   } catch (e) {

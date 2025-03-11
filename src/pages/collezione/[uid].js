@@ -4,12 +4,12 @@ import { createClient } from "../../../prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import FadeStagger from "@/components/Animations/FadeStagger";
 import FadeInAnimation from "@/components/Animations/FadeInAnimation";
-
-export default function Oggetto({ page, settings }) {
+import { getLocales } from "../../../helpers/getLocales";
+export default function Oggetto({ page, settings, locales }) {
   const { data } = page;
 
   return (
-    <Layout settings={settings} meta={data} altLangs={page.alternate_languages}>
+    <Layout settings={settings} meta={data} altLangs={locales}>
       <div className="flex md:flex-row flex-col min-h-full md:pt-5 pt-6 md:pb-2 pb-4 md:px-4 px-1">
         <div className="md:w-[30%] w-full">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 md:pr-8 text-grey md:text-base text-xs md:mb-0 mb-1">
@@ -56,11 +56,13 @@ export async function getStaticProps({ params, previewData, locale }) {
   });
 
   const settings = await client.getSingle("settings", { lang: locale });
+  const locales = await getLocales(page, client);
 
   return {
     props: {
       page,
       settings,
+      locales
     },
   };
 }

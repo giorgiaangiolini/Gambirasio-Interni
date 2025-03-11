@@ -8,7 +8,7 @@ import TextAnimation from "@/components/Animations/TextAnimation";
 import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 import { PrismicLink } from "@prismicio/react";
 
-export default function Contatti({ contatti, settings }) {
+export default function Contatti({ contatti, settings, locales }) {
   const { data } = contatti;
 
   const [isMuted, setIsMuted] = useState(true);
@@ -31,7 +31,7 @@ export default function Contatti({ contatti, settings }) {
     <Layout
       settings={settings}
       meta={data}
-      altLangs={contatti.alternate_languages}
+      altLangs={locales}
     >
       <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-5 px-1 md:pb-0 pb-6">
 

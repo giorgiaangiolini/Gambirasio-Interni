@@ -8,7 +8,7 @@ import SlideshowServizi from "../components/slideshow-servizi";
 import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 import useWindowSize from "../../helpers/useWindowSize";
 
-export default function Servizi({ servizi, settings }) {
+export default function Servizi({ servizi, settings, locales }) {
   const { data } = servizi;
 
   const { width } = useWindowSize();
@@ -20,7 +20,7 @@ export default function Servizi({ servizi, settings }) {
     <Layout
       settings={settings}
       meta={servizi.data}
-      altLangs={servizi.alternate_languages}
+      altLangs={locales}
     >
       <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-5 px-1 md:gap-4 gap-1 md:pb-0 pb-4 justify-end md:justify-start">
 
@@ -78,7 +78,7 @@ export async function getStaticProps({ params, locale, previewData }) {
     const servizi = await client.getSingle("servizi", { lang: locale });
 
     const settings = await client.getSingle("settings", { lang: locale });
-
+    const locales = await getLocales(servizi, client);
     if (!servizi || !settings) {
       return { notFound: true };
     }
@@ -87,6 +87,7 @@ export async function getStaticProps({ params, locale, previewData }) {
       props: {
         servizi,
         settings,
+        locales,
       },
     };
   } catch (e) {

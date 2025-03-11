@@ -5,7 +5,8 @@ import { SliceZone } from "@prismicio/react";
 import { PrismicNextImage } from '@prismicio/next';
 import FadeStagger from "@/components/Animations/FadeStagger";
 import FadeInAnimation from '@/components/Animations/FadeInAnimation';
-export default function Progetto({ page, settings }) {
+import { getLocales } from "../../../helpers/getLocales";
+export default function Progetto({ page, settings, locales }) {
 
   const {data} = page;
   
@@ -13,7 +14,7 @@ export default function Progetto({ page, settings }) {
       <Layout
       settings={settings}
       meta={data}
-      altLangs={page.alternate_languages}
+      altLangs={locales}
       >
         <div className="flex lg:flex-row flex-col min-h-screen lg:pt-5 pt-6 lg:pb-2 pb-4 md:px-4 px-1">
           <div className="lg:w-[30%] w-full">
@@ -72,10 +73,13 @@ export async function getStaticProps({ params, previewData, locale }) {
 
   const settings = await client.getSingle("settings",{ lang: locale});
 
+  const locales = await getLocales(page, client);
+
   return {
     props: {
       page,
-      settings
+      settings,
+      locales
     },
   };
 
