@@ -9,28 +9,30 @@ export const repositoryName = prismic.getRepositoryName(endpoint);
 
 export const linkResolver = (doc) => {
 
+  const langPrefix = doc.lang === 'it-it' ? '': doc.lang === 'en-gb' ? '/en-gb' : '';
+
   if(doc.type == "homepage"){
-    return `/`
+    return `${langPrefix}/`
   }
 
   if(doc.type == "contatti"){
-    return `/contatti`
+    return `${langPrefix}/contatti`
   }
 
   if(doc.type == "storia"){
-    return `/storia`
+    return `${langPrefix}/storia`
   }
 
   if(doc.type == "servizi"){
-    return `/servizi`
+    return `${langPrefix}/servizi`
   }
 
   if(doc.type == "progetto"){
-    return `/progettazione/${doc.uid}`
+    return `${langPrefix}/progettazione/${doc.uid}`
   }
 
   if(doc.type == "oggetto"){
-    return `/collezioni/${doc.uid}`
+    return `${langPrefix}/collezioni/${doc.uid}`
   }
 
   return "/";

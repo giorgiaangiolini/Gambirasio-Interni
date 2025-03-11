@@ -15,25 +15,25 @@ export default function Progetto({ page, settings }) {
       meta={data}
       altLangs={page.alternate_languages}
       >
-        <div className="flex md:flex-row flex-col min-h-screen md:pt-5 pt-6 md:pb-2 pb-4 md:px-4 px-1">
-          <div className="md:w-[30%] w-full">
-            <div className="sticky md:top-[50vh] md:-translate-y-1/2 md:pr-8 text-grey md:text-base text-xs md:mb-0 mb-1">
+        <div className="flex lg:flex-row flex-col min-h-screen lg:pt-5 pt-6 lg:pb-2 pb-4 md:px-4 px-1">
+          <div className="lg:w-[30%] w-full">
+            <div className="sticky lg:top-[50vh] md:-translate-y-1/2 lg:pr-8 text-grey lg:text-base text-xs lg:mb-0 mb-1">
             <FadeInAnimation>
               {data.descrizione_progetto}
               </FadeInAnimation>
             </div>
            
           </div>
-          <div className="md:w-[70%] w-full">
+          <div className="lg:w-[70%] w-full">
             
             <FadeStagger>
             <div className="flex flex-col gap-1 ">
               {data.immagini.map((img, i) => (
                 <div
-                key={i} className="w-full flex justify-end md:h-[calc(100vh-100px)]">
+                key={i} className="w-full flex justify-end lg:h-[calc(90vh-100px)]">
                   <PrismicNextImage
                     field={img.immagine}
-                    className="md:w-auto h-full object-contain"
+                    className="md:w-auto h-full object-cover"
                     alt={img.immagine?.alt}
                   />
                 </div>

@@ -353,6 +353,17 @@ interface OggettoDocumentData {
   descrizione: prismic.KeyTextField;
 
   /**
+   * Prezzo field in *Oggetto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: oggetto.prezzo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo: prismic.KeyTextField;
+
+  /**
    * Immagini field in *Oggetto*
    *
    * - **Field Type**: Group

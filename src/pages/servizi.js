@@ -34,8 +34,8 @@ export default function Servizi({ servizi, settings }) {
                       setSelectedIndex(index);
                       setOpenAccordion(openAccordion === index ? null : index);
                     }}
-                    className={`text-left hover:opacity-70  uppercase md:text-base text-base font-secondary mb-1 ${
-                      selectedIndex === index ? "" : ""
+                    className={`text-left hover:opacity-70 uppercase md:text-[16px] text-[16px] transition-all duration-[200ms] font-secondary mb-1 relative  ${
+                      selectedIndex === index ? "before:content-[''] pl-2 before:w-[5px] before:h-[5px] before:rounded-full before:bg-black before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2" : ""
                     }`}
                   >
                     {item.servizio}
@@ -45,7 +45,7 @@ export default function Servizi({ servizi, settings }) {
                       openAccordion === index ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="pb-1">
+                    <div className="pb-1 max-w-[350px]">
                     <PrismicRichText
                       field={item.descrizione}
                       components={{

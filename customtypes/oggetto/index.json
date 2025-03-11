@@ -49,6 +49,13 @@
           "placeholder": ""
         }
       },
+      "prezzo": {
+        "type": "Text",
+        "config": {
+          "label": "Prezzo",
+          "placeholder": ""
+        }
+      },
       "immagini": {
         "type": "Group",
         "config": {

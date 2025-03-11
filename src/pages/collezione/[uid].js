@@ -24,7 +24,7 @@ export default function Oggetto({ page, settings }) {
                 key={i} className="w-full flex justify-end md:h-[calc(100vh-100px)]">
                   <PrismicNextImage
                     field={img.immagine}
-                    className="md:w-auto h-full object-contain"
+                    className="md:w-auto h-full object-cover"
                     alt={img.immagine?.alt}
                   />
                 </div>

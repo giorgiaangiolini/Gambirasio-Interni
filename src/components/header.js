@@ -5,16 +5,13 @@ import { LanguageSwitcher } from "./ui/LanguageSwitcher";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import BrevoForm from "./BrevoForm";
 
 function Header({ altLangs, settings }) {
   const { data } = settings;
 
   const router = useRouter();
-  const [expanded, setExpanded] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [modalOpen, setModalOpen] = useState(false);
 
   const menuRef = useRef();
   const linksRef = useRef([]);
@@ -70,10 +67,11 @@ function Header({ altLangs, settings }) {
     }
   };
 
+  console.log(data, "ciao")
   return (
     <>
       <header
-        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 md:py-1 pb-2 md:px-5 font-secondary h-5 flex items-center md:pt-1 pt-3`}
+        className={`fixed bg-transparent transition-all duration-300 left-0 z-[999] top-0 w-full px-1 md:py-1 pb-2 md:px-4 font-secondary h-5 flex items-center md:pt-1 pt-3`}
       >
         <div className="flex items-center justify-between gap-2 w-full">
           <div className="lg:w-1/3 md:w-auto">
@@ -85,7 +83,7 @@ function Header({ altLangs, settings }) {
           </div>
 
           <div className="md:flex hidden items-center gap-4 justify-center lg:w-1/3 w-auto">
-            {settings.data.header[0].link.map((item, i) => {
+            {settings.data?.header[0]?.link?.map((item, i) => {
               return (
                 <PrismicLink
                   key={item.key}
@@ -99,20 +97,9 @@ function Header({ altLangs, settings }) {
           </div>
 
           <div className="lg:w-1/3 w-auto lg:block hidden  tracking-[0.07em]">
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href={settings.data.link_codice_form}
-              className="text-sm flex justify-end cursor-pointer hover:opacity-50 transition-all duration-300"
-            >
-              {settings.data.bottone_contatti}
-            </Link>
-
-            {altLangs[0] ? (
-              <div className="flex justify-end">
-                <LanguageSwitcher altLangs={altLangs} />
-              </div>
-            ) : null}
+            <div className="flex justify-end">
+              {altLangs?.length > 1 && <LanguageSwitcher altLangs={altLangs} />}
+            </div>
           </div>
 
           <div
@@ -154,11 +141,31 @@ function Header({ altLangs, settings }) {
       >
         <div className="justify-center text-center text-[23px] h-full font-secondary flex flex-col items-center gap-4 text-grey">
           <ul className="gap-1 flex flex-col">
-            {settings.data.header[0].link.map((item) => {
+            {settings.data?.header[0]?.link?.map((item, i) => {
               return (
-                <li>
+                <li key={i}>
                   <PrismicLink className="link_col opacity-100" field={item}>
                     {item.text}
+                  </PrismicLink>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="flex justify-center link_col">
+            {altLangs?.length > 1 && <LanguageSwitcher altLangs={altLangs} />}
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 w-full">
+          <ul className="flex flex-col gap-1 text-center text-[23px] pb-4 text-grey font-secondary">
+            {data?.lista_link?.map((item, i) => {
+              return (
+                <li key={i}>
+                  <PrismicLink
+                    field={item.link}
+                    className="opacity-100 text-[18px] leading-none transition-all duration-300"
+                  >
+                    {item.link.text}
                   </PrismicLink>
                 </li>
               );
@@ -167,36 +174,6 @@ function Header({ altLangs, settings }) {
         </div>
       </div>
 
-      <div
-        className={`fixed inset-0 z-[999] bg-white/70 transition-opacity duration-300 ease-in-out p-2 flex items-center justify-center  ${
-          modalOpen ? "opacity-100 visible" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="h-[90vh] max-w-full w-[700px] bg-white flex items-center justify-center border border-grey relative overflow-scroll">
-          <button
-            onClick={() => setModalOpen(false)}
-            className="absolute top-1 right-1 p-1"
-          >
-            <div className="grid justify-items-center relative h-[10px] w-2 hover:opacity-50 transition-all duration-300">
-              <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 rotate-45 translate-y-[4.5px]"></span>
-              <span className="h-[1px] w-2 rounded-full bg-grey transition absolute left-0 -rotate-45 translate-y-[4.5px]"></span>
-            </div>
-          </button>
-          <div className="text-center">
-            <div className="text-grey text-base">
-              {/* <BrevoForm data={settings.data} /> */}
-              <iframe
-                width="640"
-                height="705"
-                src={settings.data.link_codice_form}
-                frameborder="0"
-                scrolling="auto"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

@@ -129,8 +129,9 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
                           />
                         </div>
                       </div>
-                      <div className="text-grey leading-none py-1 text-sm md:block hidden">
+                      <div className="text-grey leading-none py-1 text-sm md:flex hidden  justify-between gap-3">
                         <p>{item.data.didascalia}</p>
+                        <p>{item.data.prezzo}</p>
                       </div>
                     </div>
                   </Link>
