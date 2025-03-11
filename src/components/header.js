@@ -67,7 +67,6 @@ function Header({ altLangs, settings }) {
     }
   };
 
-  console.log(data, "ciao")
   return (
     <>
       <header
