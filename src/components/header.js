@@ -45,7 +45,7 @@ function Header({ altLangs, settings }) {
         .from(links, {
           opacity: 0,
           y: "10px",
-          stagger: 0.08,
+          stagger: 0.04,
           ease: "power3.out",
           duration: 0.5,
         });
@@ -138,7 +138,7 @@ function Header({ altLangs, settings }) {
           " fixed z-[998] translate-x-[-100vw] top-0 h-[100vh] w-[100vw] bg-white px-[15px] py-2  ease-in-out text-black"
         }
       >
-        <div className="justify-center text-center text-[23px] h-full font-secondary flex flex-col items-center gap-4 text-grey">
+        <div className="justify-center text-center text-[23px] h-full font-secondary flex flex-col items-center gap-2 text-grey">
           <ul className="gap-1 flex flex-col">
             {settings.data?.header[0]?.link?.map((item, i) => {
               return (
@@ -156,13 +156,13 @@ function Header({ altLangs, settings }) {
         </div>
 
         <div className="absolute bottom-0 left-0 w-full">
-          <ul className="flex flex-col gap-1 text-center text-[23px] pb-4 text-grey font-secondary">
+          <ul className="flex flex-col gap-0 text-center text-[23px] pb-2 text-grey font-secondary">
             {data?.lista_link?.map((item, i) => {
               return (
-                <li key={i}>
+                <li className="leading-[1.2] link_col" key={i}>
                   <PrismicLink
                     field={item.link}
-                    className="opacity-100 text-[18px] leading-none transition-all duration-300"
+                    className="opacity-100 text-[14px] leading-none transition-all duration-300"
                   >
                     {item.link.text}
                   </PrismicLink>
