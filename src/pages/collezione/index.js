@@ -121,11 +121,15 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
                             field={item.data.cover_01}
                             className="object-cover w-full h-full cover_1"
                             alt={item.data.cover_01?.alt}
+                            loading="eager"
+                            sizes="(min-width: 768px) 25vw, 100vw"
                           />
 
                           <PrismicNextImage
                             field={item.data.cover_02}
                             className="absolute md:block hidden inset-0 object-cover w-full h-full opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+                            loading="eager"
+                            sizes="(min-width: 768px) 25vw, 100vw"
                             alt={item.data.cover_02?.alt}
                           />
                         </div>

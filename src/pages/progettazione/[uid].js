@@ -31,7 +31,7 @@ export default function Progetto({ page, settings, locales }) {
             <div className="flex flex-col gap-1 ">
               {data.immagini.map((img, i) => (
                 <div
-                key={i} className="w-full flex justify-end lg:h-[calc(90vh-100px)]">
+                key={i} className="w-full flex justify-end lg:h-[calc(100vh-60px)]">
                   <PrismicNextImage
                     field={img.immagine}
                     className="md:w-auto h-full object-cover"
