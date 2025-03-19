@@ -52,20 +52,23 @@ const Slideshow = ({ slice }) => {
     >
       <div ref={slideRef} className="md:h-[calc(100vh-50px)] h-[calc(100vh-40px)] pt-5 md:px-4">
         <Swiper
-          modules={[Mousewheel, A11y, Keyboard, EffectFade]}
+          modules={[A11y, Keyboard, EffectFade]}
           spaceBetween={0}
           slidesPerView={1}
           effect="fade"
           keyboard={{
             enabled: true,
           }}
-          mousewheel={{
-            sensitivity: 1,
-            thresholdDelta: 2,
-          }}
           speed={1000}
           grabCursor={true}
           className="h-full w-full"
+          onClick={(swiper) => {
+            if (swiper.activeIndex === swiper.slides.length - 1) {
+              swiper.slideTo(0);
+            } else {
+              swiper.slideNext();
+            }
+          }}
           onSlideChange={(swiper) => {
             setIndex(swiper.activeIndex);
           }}
@@ -83,12 +86,29 @@ const Slideshow = ({ slice }) => {
                       backgroundRepeat: "no-repeat",
                     }}
                   >
-                    <PrismicNextImage
-                      field={item.immagine}
-                      fill
-                      className="object-cover w-full"
-                      alt={item.immagine.alt || ""}
-                    />
+                    {item.immagine_mobile?.url ? (
+                      <>
+                        <PrismicNextImage
+                          field={item.immagine}
+                          fill
+                          className="object-cover w-full md:block hidden"
+                          alt={item.immagine.alt || ""}
+                        />
+                        <PrismicNextImage
+                          field={item.immagine_mobile}
+                          fill
+                          className="object-cover w-full md:hidden block"
+                          alt={item.immagine_mobile.alt || item.immagine.alt || ""}
+                        />
+                      </>
+                    ) : (
+                      <PrismicNextImage
+                        field={item.immagine}
+                        fill
+                        className="object-cover w-full"
+                        alt={item.immagine.alt || ""}
+                      />
+                    )}
                   </div>
                 </SwiperSlide>
               );
