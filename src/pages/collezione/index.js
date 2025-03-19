@@ -106,7 +106,7 @@ export default function Collezioni({
 
         <div className="md:w-[70%] w-full">
           <FadeInAnimation>
-            <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px]">
+            <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px] md:mb-0 mb-4">
               {filteredCollezioni.map((item, i) => {
                 return (
                   <Link
