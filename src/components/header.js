@@ -83,11 +83,12 @@ function Header({ altLangs, settings }) {
 
           <div className="md:flex hidden items-center gap-4 justify-center lg:w-1/3 w-auto">
             {settings.data?.header[0]?.link?.map((item, i) => {
+              console.log(router, "ciao")
               return (
                 <PrismicLink
                   key={item.key}
                   field={item}
-                  className={`text-sm header_link tracking-[0.07em]  ${router.pathname.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-blue  font-secondary leading-none relative group`}
+                  className={`text-sm header_link tracking-[0.07em]  ${router.asPath.includes(item.text.toLowerCase()) ? "active_link" : ""} uppercase text-blue  font-secondary leading-none relative group`}
                 >
                   {item.text}
                 </PrismicLink>

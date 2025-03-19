@@ -19,17 +19,8 @@ export const linkResolver = (doc) => {
     return doc.lang === 'en-gb' ? `${langPrefix}/contact` : `${langPrefix}/contatti`
   }
 
-
   if(doc.type == "servizi"){
     return doc.lang === 'en-gb' ? `${langPrefix}/services` : `${langPrefix}/servizi`
-  }
-
-  if(doc.type == "progettazione"){
-    return doc.lang === 'en-gb' ? `${langPrefix}/projects` : `${langPrefix}/progettazione`
-  }
-
-  if(doc.type == "collezione"){
-    return doc.lang === 'en-gb' ? `${langPrefix}/collection` : `${langPrefix}/collezione`
   }
 
   if(doc.type == "progetto"){
@@ -38,6 +29,14 @@ export const linkResolver = (doc) => {
 
   if(doc.type == "oggetto"){
     return doc.lang === 'en-gb' ? `${langPrefix}/collection/${doc.uid}` : `${langPrefix}/collezione/${doc.uid}`
+  }
+
+  if(doc.type == "progettazione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/projects` : `${langPrefix}/progettazione`
+  }
+
+  if(doc.type == "collezione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/collection` : `${langPrefix}/collezione`
   }
 
   return "/";

@@ -45,10 +45,10 @@ const nextConfig = async () =>  {
           source: '/collection/:slug', 
           destination: '/collezione/:slug', 
         },
-          {
-            source: '/services', 
-            destination: '/servizi', 
-          },
+        {
+          source: '/services', 
+          destination: '/servizi', 
+        },
         {
           source: '/contact', 
           destination: '/contatti', 
