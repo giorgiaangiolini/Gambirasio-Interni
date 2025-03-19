@@ -21,7 +21,7 @@ export const LanguageSwitcher = ({ altLangs = [] }) => {
       {altLangs.map((altLang) => (
         <li key={`${altLang.lang}`}>
           <Link
-            href={altLang.url || (altLang.lang === 'it-it' ? '/' : `/${altLang.lang}`)}
+            href={altLang.url || router.asPath}
             locale={altLang.lang}
             className={altLang.lang === currentLang ? 'opacity-100' : 'opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer'}
           >
