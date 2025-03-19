@@ -4,15 +4,20 @@ import Layout from "../../components/layout";
 import { getLocales } from "../../../helpers/getLocales";
 import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
-import FadeStagger from "@/components/Animations/FadeStagger";
 import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { PrismicRichText } from "@prismicio/react";
+import { useRouter } from "next/router";
 
-export default function Collezioni({ collezioni, settings, locales, collezione }) {
+export default function Collezioni({
+  collezioni,
+  settings,
+  locales,
+  collezione,
+}) {
   const { data } = settings;
-
+  const router = useRouter();
   const [selectedTag, setSelectedTag] = useState(null);
 
   // Estrai tutti i tag unici dalle collezioni
@@ -45,15 +50,17 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
         opacity: 1,
         duration: 2,
         stagger: 0.1,
-        ease: "power3.out"
+        ease: "power3.out",
       }
     );
-
   }, [selectedTag]);
 
   return (
     <Layout settings={settings} meta={data} altLangs={locales}>
-      <div ref={contentRef} className="flex md:flex-row flex-col min-h-full md:pt-5 pt-5  md:px-4 px-1">
+      <div
+        ref={contentRef}
+        className="flex md:flex-row flex-col min-h-full md:pt-5 pt-5  md:px-4 px-1"
+      >
         <div className="md:w-[30%] w-full md:block hidden md:min-h-[calc(100vh-100px)]">
           <div className="sticky md:top-[50vh] md:-translate-y-1/2 pr-8 text-grey mb-2">
             <div className="flex md:flex-col md:gap-1 gap-3  relative md:text-base text-xs">
@@ -98,11 +105,19 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
         </div>
 
         <div className="md:w-[70%] w-full">
-        <FadeInAnimation>
-          <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px]">
+          <FadeInAnimation>
+            <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px]">
               {filteredCollezioni.map((item, i) => {
                 return (
-                  <Link className="collezione_card" key={i} href={`/collezione/${item.uid}`}>
+                  <Link
+                    className="collezione_card"
+                    key={i}
+                    href={
+                      router.locale === "en-gb"
+                        ? `/collection/${item.uid}`
+                        : `/collezione/${item.uid}`
+                    }
+                  >
                     <div key={i} className="w-full">
                       <div className="relative w-full group overflow-hidden aspect-4-5">
                         <div
@@ -142,7 +157,7 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
                   </Link>
                 );
               })}
-          </div>
+            </div>
           </FadeInAnimation>
         </div>
       </div>
@@ -154,22 +169,22 @@ export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
 
   try {
-    const collezioni = await client.getAllByType("oggetto", { 
+    const collezioni = await client.getAllByType("oggetto", {
       orderings: {
         field: "my.oggetto.data",
         direction: "desc",
       },
-      lang: locale });
+      lang: locale,
+    });
 
     const settings = await client.getSingle("settings", { lang: locale });
     const collezione = await client.getSingle("collezione", { lang: locale });
-
 
     if (!collezioni || !settings) {
       return { notFound: true };
     }
 
-    const locales = await getLocales(collezione, client)
+    const locales = await getLocales(collezione, client);
 
     return {
       props: {

@@ -9,6 +9,8 @@ export const repositoryName = prismic.getRepositoryName(endpoint);
 
 export const linkResolver = (doc) => {
 
+  console.log(doc.type, "ciao")
+
   const langPrefix = doc.lang === 'it-it' ? '': doc.lang === 'en-gb' ? '/en-gb' : '';
 
   if(doc.type == "homepage"){
@@ -22,6 +24,13 @@ export const linkResolver = (doc) => {
   if(doc.type == "servizi"){
     return doc.lang === 'en-gb' ? `${langPrefix}/services` : `${langPrefix}/servizi`
   }
+  if(doc.type == "progettazione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/projects` : `${langPrefix}/progettazione`
+  }
+
+  if(doc.type == "collezione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/collection` : `${langPrefix}/collezione`
+  }
 
   if(doc.type == "progetto"){
     return doc.lang === 'en-gb' ? `${langPrefix}/projects/${doc.uid}` : `${langPrefix}/progettazione/${doc.uid}`
@@ -29,14 +38,6 @@ export const linkResolver = (doc) => {
 
   if(doc.type == "oggetto"){
     return doc.lang === 'en-gb' ? `${langPrefix}/collection/${doc.uid}` : `${langPrefix}/collezione/${doc.uid}`
-  }
-
-  if(doc.type == "progettazione"){
-    return doc.lang === 'en-gb' ? `${langPrefix}/projects` : `${langPrefix}/progettazione`
-  }
-
-  if(doc.type == "collezione"){
-    return doc.lang === 'en-gb' ? `${langPrefix}/collection` : `${langPrefix}/collezione`
   }
 
   return "/";

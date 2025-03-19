@@ -83,7 +83,6 @@ function Header({ altLangs, settings }) {
 
           <div className="md:flex hidden items-center gap-4 justify-center lg:w-1/3 w-auto">
             {settings.data?.header[0]?.link?.map((item, i) => {
-              console.log(router, "ciao")
               return (
                 <PrismicLink
                   key={item.key}

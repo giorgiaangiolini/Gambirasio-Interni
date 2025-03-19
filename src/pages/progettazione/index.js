@@ -6,8 +6,10 @@ import Link from "next/link";
 import FadeStagger from "@/components/Animations/FadeStagger";
 import { getLocales } from "../../../helpers/getLocales";
 import { PrismicRichText } from "@prismicio/react";
+import { useRouter } from "next/router";
 export default function Progetti({ progetti, settings, progettazione, locales }) {
   const { data } = progetti;
+  const router = useRouter();
 
   return (
     <Layout
@@ -27,7 +29,7 @@ export default function Progetti({ progetti, settings, progettazione, locales })
           <FadeStagger>
             <div className="grid md:grid-cols-3 grid-cols-1 md:gap-1 gap-2 ">
               {progetti.map((progetto, i) => (
-                <Link href={`/progettazione/${progetto.uid}`}>
+                <Link key={i} href={router.locale === "en-gb" ? `/projects/${progetto.uid}` : `/progettazione/${progetto.uid}`}>
                   <div key={i} className="w-full">
                     <div className="relative w-full  group overflow-hidden aspect-4-5">
                       <div className="absolute w-full h-full top-0 left-0">
