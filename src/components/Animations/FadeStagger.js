@@ -15,6 +15,7 @@ const FadeStagger = ({children}) => {
 
   useGSAP(()=>{
 
+    gsap.set(parentRef.current, {opacity: 1});
     gsap.set(parentRef.current.children[0].children, {autoAlpha: 0});
 
     ScrollTrigger.batch(parentRef.current.children[0].children, {
@@ -28,7 +29,7 @@ const FadeStagger = ({children}) => {
   },{ dependencies: [], scope: parentRef.current })
 
   return (
-    <div ref={parentRef} className='fadeIn_stagger'>{children}</div>
+    <div ref={parentRef} className='fadeIn_stagger opacity-0'>{children}</div>
   )
 }
 

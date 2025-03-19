@@ -33,7 +33,7 @@ export default function Contatti({ contatti, settings, locales }) {
       meta={data}
       altLangs={locales}
     >
-      <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-5 px-1 md:pb-0 pb-6">
+      <div className="flex md:flex-row flex-col-reverse min-h-full h-auto md:pt-5 pt-5 md:gap-4 gap-1 md:px-4 px-1 md:pb-0 pb-6">
 
         <div className="md:w-[30%] w-full flex md:flex-row flex-col md:items-center md:py-5">
 

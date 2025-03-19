@@ -22,7 +22,7 @@ export default function Servizi({ servizi, settings, locales }) {
       meta={servizi.data}
       altLangs={locales}
     >
-      <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-5 px-1 md:gap-4 gap-1 md:pb-0 pb-4 justify-end md:justify-start">
+      <div className="flex md:flex-row flex-col-reverse min-h-full md:pt-5 pt-5 md:px-4 px-1 md:gap-4 gap-1 md:pb-0 pb-4 justify-end md:justify-start">
 
         <div className="md:w-[30%] h-full w-full relative">
             <div className="flex flex-col h-full justify-center gap-0 relative md:min-h-[calc(100vh-100px)]">
@@ -34,7 +34,7 @@ export default function Servizi({ servizi, settings, locales }) {
                       setSelectedIndex(index);
                       setOpenAccordion(openAccordion === index ? null : index);
                     }}
-                    className={`text-left hover:opacity-70 uppercase md:text-[16px] text-[16px] transition-all duration-[200ms] font-secondary mb-1 relative  ${
+                    className={`text-left hover:opacity-70 uppercase md:text-[16px] text-[16px] transition-all duration-[200ms] font-secondary mb-1 relative tracking-wider ${
                       selectedIndex === index ? "before:content-[''] pl-2 before:w-[5px] before:h-[5px] before:rounded-full before:bg-black before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2" : ""
                     }`}
                   >

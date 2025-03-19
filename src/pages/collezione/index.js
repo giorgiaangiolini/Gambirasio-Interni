@@ -5,6 +5,7 @@ import { getLocales } from "../../../helpers/getLocales";
 import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
 import FadeStagger from "@/components/Animations/FadeStagger";
+import FadeInAnimation from "@/components/Animations/FadeInAnimation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { PrismicRichText } from "@prismicio/react";
@@ -97,7 +98,7 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
         </div>
 
         <div className="md:w-[70%] w-full">
-        <FadeStagger>
+        <FadeInAnimation>
           <div className="grid md:grid-cols-3 grid-cols-2 md:gap-1 gap-[5px]">
               {filteredCollezioni.map((item, i) => {
                 return (
@@ -129,16 +130,16 @@ export default function Collezioni({ collezioni, settings, locales, collezione }
                           />
                         </div>
                       </div>
-                      <div className="text-grey leading-none py-1 text-sm md:flex hidden  justify-between gap-3">
-                        <p>{item.data.didascalia}</p>
-                        <p>{item.data.prezzo}</p>
+                      <div className="text-grey leading-none py-1 text-sm md:flex hidden  justify-between gap-3 ">
+                        <p className="max-w-[90%]">{item.data.didascalia}</p>
+                        <p className="min-w-fit">{item.data.prezzo}</p>
                       </div>
                     </div>
                   </Link>
                 );
               })}
           </div>
-          </FadeStagger>
+          </FadeInAnimation>
         </div>
       </div>
     </Layout>
