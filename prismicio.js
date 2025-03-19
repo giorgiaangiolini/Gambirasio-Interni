@@ -9,8 +9,6 @@ export const repositoryName = prismic.getRepositoryName(endpoint);
 
 export const linkResolver = (doc) => {
 
-  console.log(doc.type, "ciao")
-
   const langPrefix = doc.lang === 'it-it' ? '': doc.lang === 'en-gb' ? '/en-gb' : '';
 
   if(doc.type == "homepage"){

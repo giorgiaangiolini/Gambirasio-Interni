@@ -155,7 +155,7 @@ function Header({ altLangs, settings }) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full">
+        {/* <div className="absolute bottom-0 left-0 w-full">
           <ul className="flex flex-col gap-0 text-center text-[23px] pb-2 text-grey font-secondary">
             {data?.lista_link?.map((item, i) => {
               return (
@@ -170,7 +170,7 @@ function Header({ altLangs, settings }) {
               );
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
 
     </>
