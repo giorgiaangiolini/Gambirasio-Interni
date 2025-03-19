@@ -16,23 +16,28 @@ export const linkResolver = (doc) => {
   }
 
   if(doc.type == "contatti"){
-    return `${langPrefix}/contatti`
+    return doc.lang === 'en-gb' ? `${langPrefix}/contact` : `${langPrefix}/contatti`
   }
 
-  if(doc.type == "storia"){
-    return `${langPrefix}/storia`
-  }
 
   if(doc.type == "servizi"){
-    return `${langPrefix}/servizi`
+    return doc.lang === 'en-gb' ? `${langPrefix}/services` : `${langPrefix}/servizi`
+  }
+
+  if(doc.type == "progettazione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/projects` : `${langPrefix}/progettazione`
+  }
+
+  if(doc.type == "collezione"){
+    return doc.lang === 'en-gb' ? `${langPrefix}/collection` : `${langPrefix}/collezione`
   }
 
   if(doc.type == "progetto"){
-    return `${langPrefix}/progettazione/${doc.uid}`
+    return doc.lang === 'en-gb' ? `${langPrefix}/projects/${doc.uid}` : `${langPrefix}/progettazione/${doc.uid}`
   }
 
   if(doc.type == "oggetto"){
-    return `${langPrefix}/collezioni/${doc.uid}`
+    return doc.lang === 'en-gb' ? `${langPrefix}/collection/${doc.uid}` : `${langPrefix}/collezione/${doc.uid}`
   }
 
   return "/";

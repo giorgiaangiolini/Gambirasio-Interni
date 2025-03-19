@@ -27,6 +27,34 @@ const nextConfig = async () =>  {
       path: "",
       domains: ["images.prismic.io"],
     },
+    async rewrites() {
+      return [
+        {
+          source: '/projects', 
+          destination: '/progettazione', 
+        },
+        {
+          source: '/projects/:slug', 
+          destination: '/progettazione/:slug', 
+        },
+        {
+          source: '/collection', 
+          destination: '/collezione', 
+        },
+        {
+          source: '/collection/:slug', 
+          destination: '/collezione/:slug', 
+        },
+          {
+            source: '/services', 
+            destination: '/servizi', 
+          },
+        {
+          source: '/contact', 
+          destination: '/contatti', 
+        }
+      ]
+    },
   };
 };
 
