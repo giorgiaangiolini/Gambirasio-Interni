@@ -17,7 +17,7 @@ const Footer = ({ settings }) => {
         {settings.data?.bottone_contatti}
       </Link>
 
-      <ul className="md:flex hidden gap-2 text-sm">
+      <ul className="md:flex hidden gap-2 text-sm tracking-[0.07em]">
         {settings.data.lista_link.map((item, i) => {
           return (
             <li key={i}>
@@ -32,7 +32,7 @@ const Footer = ({ settings }) => {
         })}
       </ul>
 
-      <div className="text-sm md:block hidden">
+      <div className="text-sm md:block hidden tracking-[0.07em]">
        
          <Link
               target="_blank"
