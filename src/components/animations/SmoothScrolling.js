@@ -18,6 +18,57 @@ function SmoothScrolling({ children }) {
   const lenis = useLenis(ScrollTrigger.update)
   useEffect(ScrollTrigger.refresh, [lenis])
 
+
+  useEffect(() => {
+
+    const handleIframeMount = () => {
+      const iubendaIframe = document.getElementById('iubenda-iframe-content')
+      if (iubendaIframe) {
+        iubendaIframe.setAttribute('data-lenis-prevent', '')
+        lenis?.stop()
+      }
+    }
+
+    const handleIframeUnmount = () => {
+      if (lenis) {
+        lenis.stop()
+        setTimeout(() => {
+          lenis.start()
+        }, 100)
+      }
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        // Controllo per nodi aggiunti
+        const addedIframe = Array.from(mutation.addedNodes).find(
+          node => node.id === 'iubenda-iframe-content' || 
+                 (node.querySelector && node.querySelector('#iubenda-iframe-content'))
+        )
+        if (addedIframe) {
+          handleIframeMount()
+        }
+
+        // Controllo per nodi rimossi
+        const removedIframe = Array.from(mutation.removedNodes).find(
+          node => node.id === 'iubenda-iframe-content' || 
+                 (node.querySelector && node.querySelector('#iubenda-iframe-content'))
+        )
+        if (removedIframe) {
+          handleIframeUnmount()
+        }
+      }
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    })
+
+    return () => observer.disconnect()
+  }, [lenis])
+
+
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     ScrollTrigger.defaults()

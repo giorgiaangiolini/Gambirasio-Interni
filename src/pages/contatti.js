@@ -37,7 +37,7 @@ export default function Contatti({ contatti, settings, locales }) {
 
         <div className="md:w-[30%] w-full flex md:flex-row flex-col md:items-center md:py-5">
 
-          <div className="flex md:hidden justify-between gap-1 mb-4">
+          <div className="flex md:hidden flex-wrap justify-between gap-1 mb-4">
           {settings.data.lista_link.map((item, i) => {
           return (
             <div key={i}>

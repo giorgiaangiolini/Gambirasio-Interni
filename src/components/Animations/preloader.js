@@ -24,6 +24,18 @@ function Preloader({settings}) {
 const router = useRouter();
 
   useGSAP(()=>{
+    // Check if preloader has been shown before using localStorage
+    const hasSeenPreloader = localStorage.getItem('preloaderShown');
+    
+    if (hasSeenPreloader) {
+      // Skip animation and hide preloader immediately
+      preloader.current.style.display = 'none';
+      preloaderCtx.SetOpenFc();
+      return;
+    }
+
+    // Set localStorage to remember preloader has been shown
+    localStorage.setItem('preloaderShown', 'true');
 
     CustomEase.create("logoEase", "M0,0 C0.45,0.05 0,1 1,1");
 

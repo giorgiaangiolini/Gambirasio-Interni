@@ -59,6 +59,21 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
-.iubenda-tp-btn-container{
-  display: none !important;
+html body{
+  .iubenda-tp-btn-container{
+    display: none !important;
+  }
+  .iubenda-tp-btn, .iubenda-cs-preferences-link{
+    display: none !important;
+  }
+  .iub__us-widget{
+    display: none !important;
+  }
+  .iubenda-tp-btn{
+    display: none !important;
+  }
+  .iubenda-cs-content { display: none !important; }
+  .iubenda-tp-alert-btn:not([data-tp-nostyle]), .iubenda-tp-btn:not([data-tp-nostyle]), .iubenda-uspr-btn:not([data-tp-nostyle]){
+    display: none !important;
+  }
 }

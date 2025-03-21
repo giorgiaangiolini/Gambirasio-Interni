@@ -25,7 +25,6 @@ module.exports = {
         '13': '130px',
         '14': '140px',
       },
-     
     },
     colors: {
       // grey: '#8993A0',
