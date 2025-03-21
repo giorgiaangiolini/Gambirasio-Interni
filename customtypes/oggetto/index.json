@@ -43,10 +43,12 @@
         }
       },
       "descrizione": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Descrizione",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink"
         }
       },
       "prezzo": {

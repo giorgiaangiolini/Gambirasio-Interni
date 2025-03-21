@@ -17,7 +17,7 @@ const Slideshow = ({ content }) => {
     <div className='project_slideshow'>    
           <Swiper
             // key={content.id}
-            modules={[Navigation, A11y, Pagination, Autoplay]}
+            modules={[Navigation, A11y, Pagination, Autoplay, EffectFade]}
             spaceBetween={20}
             slidesPerView={1}
             navigation
@@ -25,6 +25,11 @@ const Slideshow = ({ content }) => {
             grabCursor={true}
             speed={600}
             loop={true}
+            loopedSlides={2}
+            watchSlidesProgress={true}
+            observer={true}
+            observeParents={true}
+            allowTouchMove={true}
           >
           {content?.map((item, index)=>{
             if(item.url){

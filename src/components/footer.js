@@ -5,7 +5,6 @@ import Link from "next/link";
 import FadeStagger from "./Animations/FadeStagger";
 const Footer = ({ settings }) => {
   const { data } = settings;
-  console.log(data, "ciao");
 
   return (
     <footer className="md:h-5 h-4 left-0 w-full bg-red-500 md:px-4 px-1 flex items-center justify-between font-secondary md:static fixed bottom-0 bg-white z-50">
