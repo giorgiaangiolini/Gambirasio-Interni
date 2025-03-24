@@ -48,20 +48,6 @@
             }
           }
         }
-      },
-      "bottone_contatti": {
-        "type": "Text",
-        "config": {
-          "label": "Bottone contatti",
-          "placeholder": ""
-        }
-      },
-      "codice_form": {
-        "type": "Text",
-        "config": {
-          "label": "Codice form",
-          "placeholder": ""
-        }
       }
     },
     "PRELOADER": {

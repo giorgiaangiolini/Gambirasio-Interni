@@ -17,7 +17,7 @@ const Footer = ({ settings }) => {
         <PrismicLink
           target="_blank"
           rel="noopener noreferrer"
-          href={data.link_prenota}
+          field={data.link_prenota}
           className="md:text-sm text-[18px]  flex justify-end cursor-pointer hover:opacity-50 transition-all duration-300"
         >
           {data.link_prenota.text}
