@@ -9,7 +9,7 @@ const Footer = ({ settings }) => {
   return (
     <footer className="md:h-5 h-4 left-0 w-full bg-red-500 md:px-4 px-1 flex items-center justify-between font-secondary md:static fixed bottom-0 bg-white z-50">
 
-      <div className="flex-1 md:flex hidden tracking-wider">
+      <div className="flex-1 md:flex hidden tracking-wider font-primary">
         <PrismicRichText field={data.indirizzo} />
       </div>
 
@@ -31,7 +31,7 @@ const Footer = ({ settings }) => {
               <li key={i}>
                 <PrismicLink
                   field={item.link}
-                  className="text-blue hover:opacity-50 transition-all duration-300"
+                  className="text-blue hover:opacity-50 transition-all duration-300 font-primary"
                 >
                   {item.link.text}
                 </PrismicLink>
