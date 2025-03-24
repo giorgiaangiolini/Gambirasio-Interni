@@ -151,7 +151,7 @@ export default function Collezioni({
                       </div>
                       <div className="text-grey leading-none py-1 text-sm md:flex hidden  justify-between gap-3 ">
                         <p className="max-w-[90%]">{item.data.didascalia}</p>
-                        <p className="min-w-fit">{item.data.prezzo}</p>
+                        <p className="min-w-fit hidden">{item.data.prezzo}</p>
                       </div>
                     </div>
                   </Link>
