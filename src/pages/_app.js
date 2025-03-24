@@ -152,7 +152,9 @@ export default function App({ Component, pageProps }) {
         `}</style>
 
         
-         <GoogleTagManager gtmId={"GTM-5SRVRF4T"} />
+          <GoogleTagManager gtmId={"GTM-5SRVRF4T"} />
+
+          
    
           <TransitionComponent>
          <Component {...pageProps} />
