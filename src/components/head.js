@@ -39,7 +39,7 @@ const NextHead = ({meta, settings}) => {
         title={title}
         description={description}
         openGraph={{
-          url: `https://www.gambirasiointerni.it`,
+          url: `https://www.gambirasiointerni.it${router.asPath}`,
           title,
           description,
           images: [
